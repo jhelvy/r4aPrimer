@@ -11,7 +11,7 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
-This page has everything you need to do to prepare for this course.
+Before you get started with this course, you'll need to install R and RStudio. You might also want to try out one of the "cloud" versions of RStudio listed below.
 
 # Install R and RStudio
 
@@ -26,11 +26,14 @@ Open this   | Not this!
 ![](images/rstudio_ball.png){ width=50 }  |  ![](images/Rlogo.png){ width=50 }
 </div>
 
-## RStudio in the browser!
+# RStudio in the cloud!
 
-If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _virtual_ version of RStudio in your webbrowser! Click on the <i class="fab fa-r-project"></i> logo in the menu bar and log in with your GWU web ID and password.
+If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _virtual_ version of RStudio in your webbrowser! Here are two ways to do that:
 
-**Note**: You must be on the GW network for this to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access). You can do that by installing the "Cisco AnyConnect VPN Client" software and logging in to GW's VPN:
+1. Go to https://rstudio.cloud/ and sign up for a free account. 
+2. If you are a GWU student, you can access a local RStudio cloud session by clicking on the <i class="fab fa-r-project"></i> logo in the menu bar and logging in with your GWU web ID and password.
+
+**Note**: You must be on the GW network for option 2 to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access). You can do that by installing the "Cisco AnyConnect VPN Client" software and logging in to GW's VPN:
 
 - Install [Cisco AnyConnect VPN Client](https://my.gwu.edu/mod/downloads/?category=VPN)
 - Follow [these instructions](https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm) to log on to the VPN with your GW NetID

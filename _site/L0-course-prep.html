@@ -22,8 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -86,6 +86,15 @@ tr:last-child {
 }
 
 </style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -331,13 +340,13 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">RDAB</a>
+      <a class="navbar-brand" href="index.html">R-DAB</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-book"></span>
+    <span class="fa fa fa fa-book"></span>
      
     Lessons
      
@@ -375,7 +384,7 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="far fa-bookmark"></span>
+    <span class="far fa far fa-bookmark"></span>
      
     References
      
@@ -384,28 +393,28 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa-terminal"></span>
+        <span class="fa fa fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa-chart-bar"></span>
+        <span class="fa fa fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa-feather-alt"></span>
+        <span class="fa fa fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa-expand"></span>
+        <span class="fa fa fa fa-expand"></span>
          
         Other
       </a>
@@ -414,7 +423,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa-r-project"></span>
+    <span class="fab fa fab fa-r-project"></span>
      
     RStudio Server
   </a>
@@ -423,7 +432,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bars"></span>
+    <span class="fa fa fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -431,21 +440,21 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa-info-circle"></span>
+        <span class="fa fa fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa-gavel"></span>
+        <span class="fa fa fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/emse-eda-gwu/rdab">
-        <span class="fa fa-github"></span>
+        <span class="fa fa fa fa-github"></span>
          
         Source files
       </a>
@@ -466,7 +475,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>This page has everything you need to do to prepare for this course.</p>
+<p>Before you get started with this course, you’ll need to install R and RStudio. You might also want to try out one of the “cloud” versions of RStudio listed below.</p>
 <div id="install-r-and-rstudio" class="section level1">
 <h1>Install R and RStudio</h1>
 <ul>
@@ -490,10 +499,14 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="rstudio-in-the-browser" class="section level2">
-<h2>RStudio in the browser!</h2>
-<p>If you’re having trouble installing R or RStudio, don’t worry - you can quickly launch a <em>virtual</em> version of RStudio in your webbrowser! Click on the <i class="fab fa-r-project"></i> logo in the menu bar and log in with your GWU web ID and password.</p>
-<p><strong>Note</strong>: You must be on the GW network for this to work. If you’re off campus, you can get on the network remotely using a <a href="https://seascf.seas.gwu.edu/vpn-access">VPN</a>. You can do that by installing the “Cisco AnyConnect VPN Client” software and logging in to GW’s VPN:</p>
+<div id="rstudio-in-the-cloud" class="section level2">
+<h2>RStudio in the cloud!</h2>
+<p>If you’re having trouble installing R or RStudio, don’t worry - you can quickly launch a <em>virtual</em> version of RStudio in your webbrowser! Here are two ways to do that:</p>
+<ol style="list-style-type: decimal">
+<li>Go to <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> and sign up for a free account.</li>
+<li>If you are a GWU student, you can access a local RStudio cloud session by clicking on the <i class="fab fa-r-project"></i> logo in the menu bar and logging in with your GWU web ID and password.</li>
+</ol>
+<p><strong>Note</strong>: You must be on the GW network for option 2 to work. If you’re off campus, you can get on the network remotely using a <a href="https://seascf.seas.gwu.edu/vpn-access">VPN</a>. You can do that by installing the “Cisco AnyConnect VPN Client” software and logging in to GW’s VPN:</p>
 <ul>
 <li>Install <a href="https://my.gwu.edu/mod/downloads/?category=VPN">Cisco AnyConnect VPN Client</a></li>
 <li>Follow <a href="https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm">these instructions</a> to log on to the VPN with your GW NetID</li>
@@ -525,7 +538,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

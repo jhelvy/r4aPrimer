@@ -44,7 +44,7 @@ navbar:
         - text: "Other"
           icon: fa fa-expand
           href: ref-other.html
-    - text: "RStudio Server"
+    - text: ""
       icon: fab fa-r-project
       href: https://rstudio.seas.gwu.edu/
   right:
