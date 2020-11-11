@@ -6,7 +6,6 @@ exclude:
 new_session: true
 navbar:
   title: "R4A Primer"
-  type: inverse
   left:
     - text: "Lessons"
       icon: fa fa-book
