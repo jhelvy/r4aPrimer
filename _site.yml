@@ -1,11 +1,11 @@
-name: "R for Data Analysis Bootcamp"
+name: "R for Analytics Primer"
 output_dir: _site
 exclude:
 - DESCRIPTION
 - LICENSE
 new_session: true
 navbar:
-  title: "R-DAB"
+  title: "R4A Primer"
   type: inverse
   left:
     - text: "Lessons"
@@ -15,20 +15,16 @@ navbar:
           href: L0-course-prep.html
         - text: "1: Getting Started"
           href: L1-getting-started.html
-        - text: "2: Operators & Data Types"
-          href: L2-operators-data-types.html
-        - text: "3: Functions & Packages"
-          href: L3-functions-packages.html
-        - text: "4: Vectors"
-          href: L4-vectors.html
-        - text: "5: Data Frames"
-          href: L5-data-frames.html
-        - text: "6: Data Wrangling"
-          href: L6-data-wrangling.html
-        - text: "7: Data Visualization"
-          href: L7-data-visualization.html
-        - text: "8: Reproducible Reporting"
-          href: L8-reproducible-reporting.html
+        - text: "2: Vectors"
+          href: L2-vectors.html
+        - text: "3: Data Frames"
+          href: L3-data-frames.html
+        - text: "4: Data Wrangling"
+          href: L4-data-wrangling.html
+        - text: "5: Data Visualization"
+          href: L5-data-visualization.html
+        - text: "6: Reproducible Reporting"
+          href: L6-reproducible-reporting.html
     - text: "References"
       icon: far fa-bookmark
       menu:
@@ -74,6 +70,6 @@ output:
       - _includes/header.html
       - _includes/style.html
       after_body: _includes/footer.html
-    theme: paper
+    theme: cosmo
     highlight: textmate
     number_sections: true

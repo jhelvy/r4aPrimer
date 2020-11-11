@@ -385,6 +385,41 @@ R first computes `2 * 4` and then adds `1`. If what you actually wanted was for 
 
 A helpful rule of thumb to remember is that **brackets always come first**. So, if you're ever unsure about what order R will do things in, an easy solution is to enclose the thing you want it to do first in brackets.
 
+## R ignores excess spacing
+
+When I typed `3 + 4` before, I could equally have done this
+
+```{r}
+3        + 4
+```
+
+or this
+
+```{r}
+            3   + 4
+```
+
+Both produce the same result. The point here is that R ignores extra spaces. This may seem irrelevant for now, but in some programming languages (e.g. Python) blank spaces matter a lot!
+
+This doesn't mean extra spaces _never_ matter. For example, if you wanted to input the value `3.14` but you put a space after the `3`, you'll get an error:
+
+```{r, error=TRUE}
+3   .14
+```
+
+Basically, you can put spaces between _different_ values, and you can put as many as you want and R won't care. But if you break a value up with a space, R will send an error message.
+
+## Using comments
+
+In R, the `#` symbol is a special symbol that denotes a comment. R will ignore anything on the same line that follows the `#` symbol. This enables us to write comments around our code to explain what we're doing:
+
+```{r}
+speed <- 55 # This is km/h, not mph!
+speed
+```
+
+Notice that R ignores the whole sentence after the `#` symbol.
+
 # Data types
 
 Every programming language has the ability to store data of different types. R recognizes several important basic data types (there are others, but these cover most cases):
@@ -489,214 +524,6 @@ In addition to the four main data types mentioned, there are a few additional "s
 **Not available**: `NA` indicates that the value that is "supposed" to be stored here is missing. We'll see these much more when we start getting into data structures like vectors and data frames.
 
 **No value**: `NULL` asserts that the variable genuinely has no value whatsoever, or does not even exist.
-
-
-
-
-
-
-
-
-
-
-
-
-
-# What else can R do?
-
-R can do a LOT more than what we've seen thus far. For example, you can ask R to print text to the console using the `cat()` function:
-
-```{r}
-cat("Hello world!")
-```
-
-In the next section, we'll learn more about some of the distinctions between different types of values in R (like numbers and characters).
-
-While R is a programming language, it is perhaps most commonly known as a tool for analyzing data and creating plots. For example, here's how you can use R to make a simple plot of the equation $y  = x^2$:
-
-```{r simple-plot, warning = FALSE, message = FALSE, out.width='75%'}
-x <- seq(from = -10, to = 10)
-y <- x^2
-plot(x, y)
-lines(x, y)
-```
-
-But you can plot way more than equations in R! For example, take a look at this plot of some [actual data about penguins](https://allisonhorst.github.io/palmerpenguins/) (don't worry about the code for now - by the end of this course you'll know what it all does!):
-
-```{r mass-flipper, warning = FALSE, message = FALSE, fig.height=5, fig.width=7}
-library(ggplot2)
-library(palmerpenguins)
-
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point(aes(color = species, shape = species),
-             size = 3, alpha = 0.8) +
-  scale_color_manual(values = c("darkorange","purple","cyan4")) +
-  theme_minimal() +
-  labs(title = "Penguin size, Palmer Station LTER",
-       subtitle = "Flipper length and body mass for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Flipper length (mm)",
-       y = "Body mass (g)",
-       color = "Penguin species",
-       shape = "Penguin species") +
-  theme(legend.position = c(0.2, 0.7),
-        legend.background = element_rect(fill = "white", color = NA),
-        plot.title.position = "plot",
-        plot.caption = element_text(hjust = 0, face= "italic"),
-        plot.caption.position = "plot")
-```
-
-# A couple more important points
-
-## R ignores excess spacing
-
-When I typed `3 + 4` before, I could equally have done this
-
-```{r}
-3        + 4
-```
-
-or this
-
-```{r}
-            3   + 4
-```
-
-Both produce the same result. The point here is that R ignores extra spaces. This may seem irrelevant for now, but in some programming languages (e.g. Python) blank spaces matter a lot!
-
-This doesn't mean extra spaces _never_ matter. For example, if you wanted to input the value `3.14` but you put a space after the `3`, you'll get an error:
-
-```{r, error=TRUE}
-3   .14
-```
-
-Basically, you can put spaces between _different_ values, and you can put as many as you want and R won't care. But if you break a value up with a space, R will send an error message.
-
-## Using comments
-
-In R, the `#` symbol is a special symbol that denotes a comment. R will ignore anything on the same line that follows the `#` symbol. This enables us to write comments around our code to explain what we're doing:
-
-```{r}
-speed <- 55 # This is km/h, not mph!
-speed
-```
-
-Notice that R ignores the whole sentence after the `#` symbol.
-
-# Staying organized
-
-## The history pane
-
-R keeps track of your "command history." If you click on the console and hit the "up" key, the R console will show you the most recent command that you've typed. Hit it again, and it will show you the command before that, and so on.
-
-The second way to get access to your command history is to look at the history panel in Rstudio. On the upper right hand side of the Rstudio window you'll see a tab labeled "History." Click on that and you'll see a list of all your recent commands displayed in that panel. It should look something like this:
-
-<center>
-<img src="images/rstudio_history.png" width=600>
-</center>
-
-If you double click on one of the commands, it will be copied to the R console.
-
-## Working directory
-
-Any process running on your computer has a notion of its "working directory". In R, this is where R will look for files you ask it to load. It's also where any files you write to disk will go.
-
-You can explicitly check your working directory with:
-
-```{r eval = FALSE}
-getwd()
-```
-
-It is also displayed at the top of the RStudio console.
-
-As a beginning R user, it's OK let your home directory or any other weird directory on your computer be R's working directory. _Very soon_, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R's working directory to the associated directory.
-
-__Although I do not recommend it__, in case you're curious, you can set R's working directory at the command line like so:
-
-```{r eval = FALSE}
-setwd("~/myCoolProject")
-```
-
-__Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu:
-
-> Session > Set Working Directory > To Files Pane Location.
-
-You'll see even more options there). Or within the Files pane, choose __More__ and __Set As Working Directory__.
-
-But there's a better way. A way that also puts you on the path to managing your R work like an expert.
-
-## RStudio projects
-
-Keeping all the files associated with a project organized together -- input data, R scripts, analytical results, figures -- is such a wise and common practice that RStudio has built-in support for this via its _projects_.
-
-[Using Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-
-Let's make one for practice. Do this:
-
-> File > New Project ....
-
-You should see the following pane:
-
-<center>
-<img src="images/rstudio_new_project.png" width=500>
-</center>
-
-Choose "New Directory". The directory name you choose here will be the project name. Call it whatever you want. RStudio will create a folder with that name to put all your project files.
-
-As a demo, I created a project on my Desktop called "demo". RStudio created a new project called "demo", and in this folder there is a file called "demo.Rproj". If I double-click on this file, RStudio will open up, and my working directory will be automatically set to this folder! You can double check this by typing:
-
-```{r eval = FALSE}
-getwd()
-```
-
-## Save your code in .R Files
-
-It is traditional to save R scripts with a `.R` or `.r` suffix. Any code you wish to re-run again later should be saved in this way and stored within your project folder. For example, if you wanted to re-run all of the code in this tutorial, open a new `.R` file and save it to your R project folder. Do this:
-
-> File > New File > R Script
-
-You can copy some of the code we've typed so far into this file to re-run it again later:
-
-```{r eval = FALSE}
-3 + 4
-3 + "4"
-x <- 2
-x
-x <- 42
-x
-this_is_a_long_name <- 2.5
-cases_matter <- 2
-Cases_matter <- 3
-cases_matter
-Cases_matter
-objects()
-ls()
-rm(x)
-rm(list = ls())
-cat("Hello world!")
-x <- seq(from = -10, to = 10)
-y <- x^2
-plot(x, y)
-lines(x, y)
-3        + 4
-            3   + 4
-2 + 2 # I'm adding two numbers
-getwd()
-```
-
-Then save this new R script with some name. Do this:
-
-> File > Save
-
-I called the file "tutorial.R" and saved it in my R project folder called "demo".
-
-Now when I open the "demo.Rproj" file, I see in my files pane the "tutorial.R" code script. I can click on that file and continue editing it!
-
-I can also run any line in the script by typing "Command + Enter" (Mac) or "Control + Enter" (Windows).
-
-
-
-
-
 
 # Functions
 
@@ -929,6 +756,116 @@ apples::fruitName()
 bananas::fruitName()
 ```
 
+# Staying organized
+
+## The history pane
+
+R keeps track of your "command history." If you click on the console and hit the "up" key, the R console will show you the most recent command that you've typed. Hit it again, and it will show you the command before that, and so on.
+
+The second way to get access to your command history is to look at the history panel in Rstudio. On the upper right hand side of the Rstudio window you'll see a tab labeled "History." Click on that and you'll see a list of all your recent commands displayed in that panel. It should look something like this:
+
+<center>
+<img src="images/rstudio_history.png" width=600>
+</center>
+
+If you double click on one of the commands, it will be copied to the R console.
+
+## Working directory
+
+Any process running on your computer has a notion of its "working directory". In R, this is where R will look for files you ask it to load. It's also where any files you write to disk will go.
+
+You can explicitly check your working directory with:
+
+```{r eval = FALSE}
+getwd()
+```
+
+It is also displayed at the top of the RStudio console.
+
+As a beginning R user, it's OK let your home directory or any other weird directory on your computer be R's working directory. _Very soon_, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R's working directory to the associated directory.
+
+__Although I do not recommend it__, in case you're curious, you can set R's working directory at the command line like so:
+
+```{r eval = FALSE}
+setwd("~/myCoolProject")
+```
+
+__Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu:
+
+> Session > Set Working Directory > To Files Pane Location.
+
+You'll see even more options there). Or within the Files pane, choose __More__ and __Set As Working Directory__.
+
+But there's a better way. A way that also puts you on the path to managing your R work like an expert.
+
+## RStudio projects
+
+Keeping all the files associated with a project organized together -- input data, R scripts, analytical results, figures -- is such a wise and common practice that RStudio has built-in support for this via its _projects_.
+
+[Using Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+
+Let's make one for practice. Do this:
+
+> File > New Project ....
+
+You should see the following pane:
+
+<center>
+<img src="images/rstudio_new_project.png" width=500>
+</center>
+
+Choose "New Directory". The directory name you choose here will be the project name. Call it whatever you want. RStudio will create a folder with that name to put all your project files.
+
+As a demo, I created a project on my Desktop called "demo". RStudio created a new project called "demo", and in this folder there is a file called "demo.Rproj". If I double-click on this file, RStudio will open up, and my working directory will be automatically set to this folder! You can double check this by typing:
+
+```{r eval = FALSE}
+getwd()
+```
+
+## Save your code in .R Files
+
+It is traditional to save R scripts with a `.R` or `.r` suffix. Any code you wish to re-run again later should be saved in this way and stored within your project folder. For example, if you wanted to re-run all of the code in this tutorial, open a new `.R` file and save it to your R project folder. Do this:
+
+> File > New File > R Script
+
+You can copy some of the code we've typed so far into this file to re-run it again later:
+
+```{r eval = FALSE}
+3 + 4
+3 + "4"
+x <- 2
+x
+x <- 42
+x
+this_is_a_long_name <- 2.5
+cases_matter <- 2
+Cases_matter <- 3
+cases_matter
+Cases_matter
+objects()
+ls()
+rm(x)
+rm(list = ls())
+cat("Hello world!")
+x <- seq(from = -10, to = 10)
+y <- x^2
+plot(x, y)
+lines(x, y)
+3        + 4
+            3   + 4
+2 + 2 # I'm adding two numbers
+getwd()
+```
+
+Then save this new R script with some name. Do this:
+
+> File > Save
+
+I called the file "tutorial.R" and saved it in my R project folder called "demo".
+
+Now when I open the "demo.Rproj" file, I see in my files pane the "tutorial.R" code script. I can click on that file and continue editing it!
+
+I can also run any line in the script by typing "Command + Enter" (Mac) or "Control + Enter" (Windows).
 
 ---
 
