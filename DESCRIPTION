@@ -46,5 +46,5 @@ Remotes:
     jhelvy/rmarkdown,
     allisonhorst/palmerpenguins,
     rstudio/fontawesome,
-    haozhu233/kableExtra
+    haozhu233/kableExtra,
     hadley/emo
