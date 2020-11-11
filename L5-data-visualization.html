@@ -25,8 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -89,15 +89,6 @@ tr:last-child {
 }
 
 </style>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -428,7 +419,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-book"></span>
+    <span class="fa fa-book"></span>
      
     Lessons
      
@@ -460,7 +451,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="far fa far fa-bookmark"></span>
+    <span class="far fa-bookmark"></span>
      
     References
      
@@ -469,28 +460,28 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa fa fa-terminal"></span>
+        <span class="fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa fa fa-chart-bar"></span>
+        <span class="fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa fa fa-feather-alt"></span>
+        <span class="fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa fa fa-expand"></span>
+        <span class="fa fa-expand"></span>
          
         Other
       </a>
@@ -499,7 +490,7 @@ div.tocify {
 </li>
 <li>
   <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa fab fa-r-project"></span>
+    <span class="fab fa-r-project"></span>
      
     
   </a>
@@ -508,7 +499,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bars"></span>
+    <span class="fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -516,21 +507,21 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa fa fa-info-circle"></span>
+        <span class="fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa fa fa-gavel"></span>
+        <span class="fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/emse-eda-gwu/rdab">
-        <span class="fa fa fa fa-github"></span>
+        <span class="fa fa-github"></span>
          
         Source files
       </a>
@@ -579,8 +570,8 @@ div.tocify {
 <h1><span class="header-section-number">1</span> R Setup</h1>
 <p>Before we get started, let’s set up our analysis environment like before:</p>
 <ol style="list-style-type: decimal">
-<li>Open up your “data-analysis-tutorial” R Project that you created in the first data analysis lesson - if you didn’t do this, <a href="L10-data-analysis-1-data-frames.html#41_r_setup">go back and do it now</a>.</li>
-<li>Create a new <code>.R</code> file (File &gt; New File &gt; R Script), and save it as “<code>data_viz.R</code>” inside your “data-analysis-tutorial” R Project folder.</li>
+<li>Open up your “data_analysis_tutorial” R Project that you created in the first data analysis lesson - if you didn’t do this, <a href="L10-data-analysis-1-data-frames.html#41_r_setup">go back and do it now</a>.</li>
+<li>Create a new <code>.R</code> file (File &gt; New File &gt; R Script), and save it as “<code>data_viz.R</code>” inside your “data_analysis_tutorial” R Project folder.</li>
 <li>This time, instead of downloading the data file and saving it in our <code>data</code> folder, let’s just read it in directly from the web!</li>
 </ol>
 <pre class="r"><code>library(readr)
@@ -673,20 +664,20 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 <pre class="r"><code>glimpse(df)</code></pre>
 <pre><code>## Rows: 166
 ## Columns: 14
-## $ name          &lt;chr&gt; &quot;Mary Porterfield&quot;, &quot;Wilie Porterfield&quot;, &quot;Henry Porterf…
-## $ age           &lt;dbl&gt; 3, 5, 7, 18, 1, 61, 60, 9, 52, NA, 60, 56, 70, 5, 11, 7…
-## $ gender        &lt;chr&gt; &quot;female&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, NA, &quot;male&quot;, &quot;male&quot;, &quot;…
-## $ date          &lt;chr&gt; &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;24/11/1906&quot;,…
-## $ month         &lt;dbl&gt; 5, 5, 5, 11, 10, 9, 6, 8, 9, 10, 6, 7, 10, 10, 10, 7, 1…
-## $ year          &lt;dbl&gt; 1901, 1901, 1901, 1906, 1908, 1916, 1922, 1929, 1929, 1…
-## $ wildOrCaptive &lt;chr&gt; &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Captive&quot;, &quot;Wild&quot;, &quot;Wil…
-## $ location      &lt;chr&gt; &quot;Job, West Virginia&quot;, &quot;Job, West Virginia&quot;, &quot;Job, West …
-## $ description   &lt;chr&gt; &quot;The children were gathering flowers near their home wh…
-## $ bearType      &lt;chr&gt; &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Brown&quot;, &quot;…
-## $ hunter        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-## $ grizzly       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0…
-## $ hiker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-## $ onlyOneKilled &lt;dbl&gt; 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0…</code></pre>
+## $ name          [3m[90m&lt;chr&gt;[39m[23m &quot;Mary Porterfield&quot;, &quot;Wilie Porterfield&quot;, &quot;Henry Porterf…
+## $ age           [3m[90m&lt;dbl&gt;[39m[23m 3, 5, 7, 18, 1, 61, 60, 9, 52, NA, 60, 56, 70, 5, 11, 7…
+## $ gender        [3m[90m&lt;chr&gt;[39m[23m &quot;female&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, NA, &quot;male&quot;, &quot;male&quot;, &quot;…
+## $ date          [3m[90m&lt;chr&gt;[39m[23m &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;24/11/1906&quot;,…
+## $ month         [3m[90m&lt;dbl&gt;[39m[23m 5, 5, 5, 11, 10, 9, 6, 8, 9, 10, 6, 7, 10, 10, 10, 7, 1…
+## $ year          [3m[90m&lt;dbl&gt;[39m[23m 1901, 1901, 1901, 1906, 1908, 1916, 1922, 1929, 1929, 1…
+## $ wildOrCaptive [3m[90m&lt;chr&gt;[39m[23m &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Captive&quot;, &quot;Wild&quot;, &quot;Wil…
+## $ location      [3m[90m&lt;chr&gt;[39m[23m &quot;Job, West Virginia&quot;, &quot;Job, West Virginia&quot;, &quot;Job, West …
+## $ description   [3m[90m&lt;chr&gt;[39m[23m &quot;The children were gathering flowers near their home wh…
+## $ bearType      [3m[90m&lt;chr&gt;[39m[23m &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Brown&quot;, &quot;…
+## $ hunter        [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ grizzly       [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0…
+## $ hiker         [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ onlyOneKilled [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0…</code></pre>
 <p>Look’s good - let’s start making some plots!</p>
 </div>
 <div id="basic-plots-in-r" class="section level1">
@@ -890,7 +881,7 @@ ggplot(data = annualKillingsByGender) +
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
