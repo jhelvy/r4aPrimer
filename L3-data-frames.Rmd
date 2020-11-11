@@ -2,7 +2,6 @@
 title: "Data Frames"
 output:
   html_document:
-    number_sections: false
     toc: yes
 ---
 
@@ -11,8 +10,6 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 library(dplyr)
 ```
-
-This is the first lesson in a sequence on data analysis in R. Before reading this lesson, check out the ["Prelude to Data Analysis"](dataAnalysisPrelude.html).
 
 > ### Learning Objectives
 >
@@ -248,9 +245,9 @@ bodywt             | Body weight in kilograms
 
 Before we dig into the data, let's prepare our analysis environment by following these steps:
 
-1) Create a new R Project called "data-analysis-tutorial" and save the folder somewhere on your computer (see the ["RStudio projects"](L1.2-getting-started.html#33_rstudio_projects.html) section from waaaaay back on week 1).
-2) Create a new `.R` file (File > New File > R Script), and save it as "`data_frames.R`" inside your "data-analysis-tutorial" R Project folder. From here on, we'll type all code for this lesson inside this `data_frames.R` file.
-3) Create another folder in your R Project folder called "data" - we'll put data in this folder real soon.
+1. Create a new R Project called "data-analysis-tutorial" and save the folder somewhere on your computer (see the ["RStudio projects"](L1-getting-started.html#83_RStudio_projects) section from lesson 1 if you're not sure what this is).
+2. Create a new `.R` file (File > New File > R Script), and save it as "`data_frames.R`" inside your "data-analysis-tutorial" R Project folder. From here on, we'll type all code for this lesson inside this `data_frames.R` file.
+3. Create another folder in your R Project folder called "data" - we'll put data in this folder real soon.
 
 ## Getting the data
 
@@ -295,14 +292,86 @@ txhousing               Housing sales in TX
 
 What do you do when a dataset isn't available from a package? Well, you can "read" the data into R from an external file. One of the most common format for storing tabular data (i.e. data that is stored as rows and columns) is the comma separated value (CSV) file.
 
-To load the same `msleep` data from an external csv file, first use the `download.file()` function to download the file. The first argument in this function is a character string with the source URL to the data file ("https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/data/msleep.csv"). The second argument is the destination where you want to locally save the file on your computer.
+To try this out yourself, download [this msleep.csv file]() and put the file in your "data" folder that you created inside your "data-analysis-tutorial" R Project folder.
+
+Note:
+
+- **DO NOT** double-click the `msleep.csv` file!
+- **DO NOT** open it in Excel!
+
+We are going to read this data into R, so fight the temptation to open it in any other program!
+
+### Steps to importing external data files
+
+1) Create a path to the data
+
+```{r}
+library(here)
+pathToData <- here('data', 'data.csv')
+```
+
+2) Import the data
 
 ```{r, eval=FALSE}
-download.file(
-    url = "https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/data/msleep.csv",
-    destfile = file.path('data', 'msleep.csv')
-)
+library(readr)
+df <- read_csv(pathToData)
 ```
+
+---
+## PSA: Use the **here** package to make file paths
+
+The `here()` function builds the path to your **root** to your _working directory_ <br>(this is where your `.Rproj` file lives!)
+```{r}
+here()
+```
+--
+The `here()` function builds the path to files _inside_ your working directory
+```{r}
+pathToData <- here('data', 'data.csv')
+pathToData
+```
+
+---
+# Avoid hard-coding file paths!
+
+### (they can break on different computers)
+```{r}
+pathToData <- 'data/data.csv'
+pathToData
+```
+# `r emo::ji("poop")``r emo::ji("poop")``r emo::ji("poop")`
+
+---
+class: center
+
+.leftcol40[.left[
+## PSA:<br>Use the **here** package to make file paths
+]]
+.rightcol60[
+<center><br>
+<img src="images/horst_monsters_here.png">
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 > **Note on making file paths**: Notice the use of the `file.path()` function to generate the path to the "data" folder on your computer. This function will automatically use the correct "`/`" symbols to create the file path. This is important because the specific file path syntax is different depending on your computer operating system (e.g. mac is "`/`" and windows is "`\`"). In the above example, the destination file path used was:
 
@@ -380,8 +449,6 @@ In summary, here is a non-exhaustive list of functions to get a sense of the con
 
 Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
-
-
 
 ---
 

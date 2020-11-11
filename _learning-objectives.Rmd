@@ -1,4 +1,4 @@
 Having successfully completed this course, students will be able to:
 
-- Write clear, robust, and reasonably efficient code for working with data in R using vectors, data frames, and lists.
+- Write clear, robust, and reasonably efficient code for working with data in R.
 - Reproducibly import, export, wrangle, and visualize data.

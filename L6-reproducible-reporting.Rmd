@@ -2,7 +2,6 @@
 title: "Reproducible Reporting"
 output:
   html_document:
-    number_sections: false
     toc: yes
 ---
 

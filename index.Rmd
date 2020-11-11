@@ -1,5 +1,5 @@
 ---
-title: "R for Data Analysis Bootcamp"
+title: "R for Analytics Primer"
 output:
   html_document:
     number_sections: false
@@ -10,8 +10,6 @@ output:
 rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
-
-**Department**: [Engineering Management and Systems Engineering](https://www.emse.seas.gwu.edu/) @ [GWU](https://www.gwu.edu/)
 
 **Description**:
 

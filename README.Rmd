@@ -22,19 +22,22 @@ Site](https://github.com/jhelvy//workflows/Render%20&%20Deploy%20Site/badge.svg)
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
-### Description
+**Description**:
 
-This site provides a *quick* foundation in using the [R programming
-language](https://www.r-project.org/) for data analytics. It is designed
-to be self-taught as preparation for other courses that build on the
-concepts covered. Topics include:
+```{r child = '_description.Rmd'}
+```
 
-  - Data input/output
-  - External packages
-  - Data structures (vectors, data frames, lists)
-  - Data wrangling
-  - Data visualization
-  - Reproducible reporting
+For more details, please see the [course website](https://jhelvy.github.io/r4aPrimer/).
+
+**Learning Objectives**:
+
+```{r child = '_learning-objectives.Rmd'}
+```
+
+**Prerequisites**:
+
+```{r child = '_prerequisites.Rmd'}
+```
 
 ### Acknowledgments
 

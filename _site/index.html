@@ -11,7 +11,7 @@
 
 
 
-<title>R for Data Analysis Bootcamp</title>
+<title>R for Analytics Primer</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,8 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -86,6 +86,15 @@ tr:last-child {
 }
 
 </style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -337,7 +346,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-book"></span>
+    <span class="fa fa fa fa-book"></span>
      
     Lessons
      
@@ -351,7 +360,7 @@ $(document).ready(function () {
       <a href="L1-getting-started.html">1: Getting Started</a>
     </li>
     <li>
-      <a href="L2-vectors.html">2: Vectors</a>
+      <a href="L2-data-types-vectors.html">2: Data Types &amp; Vectors</a>
     </li>
     <li>
       <a href="L3-data-frames.html">3: Data Frames</a>
@@ -369,7 +378,7 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="far fa-bookmark"></span>
+    <span class="far fa far fa-bookmark"></span>
      
     References
      
@@ -378,28 +387,28 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa-terminal"></span>
+        <span class="fa fa fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa-chart-bar"></span>
+        <span class="fa fa fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa-feather-alt"></span>
+        <span class="fa fa fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa-expand"></span>
+        <span class="fa fa fa fa-expand"></span>
          
         Other
       </a>
@@ -408,7 +417,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa-r-project"></span>
+    <span class="fab fa fab fa-r-project"></span>
      
     
   </a>
@@ -417,7 +426,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bars"></span>
+    <span class="fa fa fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -425,21 +434,21 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa-info-circle"></span>
+        <span class="fa fa fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa-gavel"></span>
+        <span class="fa fa fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/emse-eda-gwu/rdab">
-        <span class="fa fa-github"></span>
+        <span class="fa fa fa fa-github"></span>
          
         Source files
       </a>
@@ -455,26 +464,25 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">R for Data Analysis Bootcamp</h1>
+<h1 class="title toc-ignore">R for Analytics Primer</h1>
 
 </div>
 
 
-<p><strong>Department</strong>: <a href="https://www.emse.seas.gwu.edu/">Engineering Management and Systems Engineering</a> @ <a href="https://www.gwu.edu/">GWU</a></p>
 <p><strong>Description</strong>:</p>
-<p>This course provides a <em>quick</em> foundation in using the <a href="https://www.r-project.org/">R programming language</a> for data analytics. It is designed to be self-taught as preparation for other courses that build on the concepts covered. Topics include:</p>
+<p>This site provides a foundation in using the <a href="https://www.r-project.org/">R programming language</a> for data analytics. It is designed to be self-taught as preparation for other courses that build on the concepts covered. Topics include:</p>
 <ul>
 <li>Data input/output</li>
+<li>External packages</li>
 <li>Data structures (vectors, data frames, lists)</li>
 <li>Data wrangling</li>
 <li>Data visualization</li>
-<li>External packages</li>
 <li>Reproducible reporting</li>
 </ul>
 <p><strong>Learning Objectives</strong>:</p>
 <p>Having successfully completed this course, students will be able to:</p>
 <ul>
-<li>Write clear, robust, and reasonably efficient code for working with data in R using vectors, data frames, and lists.</li>
+<li>Write clear, robust, and reasonably efficient code for working with data in R.</li>
 <li>Reproducibly import, export, wrangle, and visualize data.</li>
 </ul>
 <p><strong>Prerequisites</strong>:</p>
@@ -504,7 +512,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

@@ -22,8 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -86,6 +86,15 @@ tr:last-child {
 }
 
 </style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -337,7 +346,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-book"></span>
+    <span class="fa fa fa fa-book"></span>
      
     Lessons
      
@@ -351,7 +360,7 @@ $(document).ready(function () {
       <a href="L1-getting-started.html">1: Getting Started</a>
     </li>
     <li>
-      <a href="L2-vectors.html">2: Vectors</a>
+      <a href="L2-data-types-vectors.html">2: Data Types &amp; Vectors</a>
     </li>
     <li>
       <a href="L3-data-frames.html">3: Data Frames</a>
@@ -369,7 +378,7 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="far fa-bookmark"></span>
+    <span class="far fa far fa-bookmark"></span>
      
     References
      
@@ -378,28 +387,28 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa-terminal"></span>
+        <span class="fa fa fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa-chart-bar"></span>
+        <span class="fa fa fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa-feather-alt"></span>
+        <span class="fa fa fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa-expand"></span>
+        <span class="fa fa fa fa-expand"></span>
          
         Other
       </a>
@@ -408,7 +417,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa-r-project"></span>
+    <span class="fab fa fab fa-r-project"></span>
      
     
   </a>
@@ -417,7 +426,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bars"></span>
+    <span class="fa fa fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -425,21 +434,21 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa-info-circle"></span>
+        <span class="fa fa fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa-gavel"></span>
+        <span class="fa fa fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/emse-eda-gwu/rdab">
-        <span class="fa fa-github"></span>
+        <span class="fa fa fa fa-github"></span>
          
         Source files
       </a>
@@ -477,9 +486,29 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
+<td>Learning statistics with R</td>
+<td>Danielle Navarro</td>
+<td><a href="https://djnavarro.github.io/tidylsrbook/">course</a>; <a href="https://github.com/djnavarro/rbook">github</a></td>
+</tr>
+<tr class="even">
+<td>R for Psychological Science</td>
+<td>Danielle Navarro</td>
+<td><a href="https://psyr.org/index.html">course</a>; <a href="https://github.com/djnavarro/psyr">github</a></td>
+</tr>
+<tr class="odd">
 <td>STAT 545</td>
 <td>U. of British Columbia</td>
 <td><a href="http://stat545.com/">course</a>; <a href="https://github.com/STAT545-UBC">github</a></td>
+</tr>
+<tr class="even">
+<td>Modern Dive</td>
+<td>Chester Ismay &amp; Albert Y. Kim</td>
+<td><a href="https://moderndive.netlify.com/">course</a>; <a href="https://github.com/moderndive/moderndive_book">github</a></td>
+</tr>
+<tr class="odd">
+<td>R for Reproducible Research</td>
+<td>Anna Krystalli</td>
+<td><a href="https://annakrystalli.me/rrresearch/">course</a>; <a href="https://github.com/annakrystalli/rrresearch">github</a></td>
 </tr>
 <tr class="even">
 <td>R for Data Science</td>
@@ -487,39 +516,9 @@ $(document).ready(function () {
 <td><a href="https://r4ds.had.co.nz/">book</a>; <a href="https://github.com/hadley/r4ds">github</a></td>
 </tr>
 <tr class="odd">
-<td>Handling Strings with R</td>
-<td>Gaston Sanchez</td>
-<td><a href="https://www.gastonsanchez.com/r4strings/">book</a>; <a href="https://github.com/gastonstat/r4strings">github</a></td>
-</tr>
-<tr class="even">
-<td>EEB313: Quantitative Methods in R for Biology</td>
-<td><a href="https://uoftcoders.github.io/studyGroup/">U of T Coders</a></td>
-<td><a href="https://uoftcoders.github.io/rcourse/index.html">course</a>; <a href="https://github.com/uoftcoders/rcourse">github</a></td>
-</tr>
-<tr class="odd">
-<td>Modern Dive</td>
-<td>Chester Ismay &amp; Albert Y. Kim</td>
-<td><a href="https://moderndive.netlify.com/">course</a>; <a href="https://github.com/moderndive/moderndive_book">github</a></td>
-</tr>
-<tr class="even">
-<td>Learning statistics with R</td>
-<td>Danielle Navarro</td>
-<td><a href="https://djnavarro.github.io/tidylsrbook/">course</a>; <a href="https://github.com/djnavarro/rbook">github</a></td>
-</tr>
-<tr class="odd">
-<td>R for Psychological Science</td>
-<td>Danielle Navarro</td>
-<td><a href="https://psyr.org/index.html">course</a>; <a href="https://github.com/djnavarro/psyr">github</a></td>
-</tr>
-<tr class="even">
-<td>What They Forgot to Teach You About R</td>
-<td>Jennifer Bryan &amp; Jim Hester</td>
-<td><a href="https://whattheyforgot.org/">course</a>; <a href="https://github.com/jennybc/what-they-forgot">github</a></td>
-</tr>
-<tr class="odd">
-<td>Introduction to Open Data Science</td>
-<td>The Ocean Health Index Team</td>
-<td><a href="http://ohi-science.org/data-science-training/">course</a>; <a href="https://github.com/OHI-Science/data-science-training">github</a></td>
+<td>Data Analysis and Visualization in R for Ecologists</td>
+<td>François Michonneau &amp; Auriel Fournier</td>
+<td><a href="https://datacarpentry.org/R-ecology-lesson/">course</a>; <a href="https://github.com/datacarpentry/R-ecology-lesson">github</a></td>
 </tr>
 <tr class="even">
 <td>Software Carpentry</td>
@@ -527,24 +526,9 @@ $(document).ready(function () {
 <td><a href="https://software-carpentry.org/lessons/">lessons</a></td>
 </tr>
 <tr class="odd">
-<td>Data Analysis and Visualization in R for Ecologists</td>
-<td>François Michonneau &amp; Auriel Fournier</td>
-<td><a href="https://datacarpentry.org/R-ecology-lesson/">course</a>; <a href="https://github.com/datacarpentry/R-ecology-lesson">github</a></td>
-</tr>
-<tr class="even">
 <td>Data Analysis and Visualization in R <em>alpha</em></td>
 <td>Data Carpentry contributors</td>
 <td><a href="https://datacarpentry.org/R-genomics/index.html">course</a>; <a href="https://github.com/datacarpentry/R-genomics">github</a></td>
-</tr>
-<tr class="odd">
-<td>CMU 15-112: Fundamentals of Programming</td>
-<td><a href="http://www.kosbie.net/cmu/">David Kosbie</a> &amp; <a href="https://hcii.cmu.edu/people/kelly-rivers">Kelly Rivers</a></td>
-<td><a href="http://www.kosbie.net/cmu/spring-17/15-112/">Spring 2017 Course</a></td>
-</tr>
-<tr class="even">
-<td>R for Reproducible Research</td>
-<td>Anna Krystalli</td>
-<td><a href="https://annakrystalli.me/rrresearch/">course</a>; <a href="https://github.com/annakrystalli/rrresearch">github</a></td>
 </tr>
 </tbody>
 </table>
@@ -573,7 +557,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

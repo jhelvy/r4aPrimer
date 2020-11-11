@@ -1,8 +1,11 @@
-This course provides a _quick_ foundation in using the [R programming language](https://www.r-project.org/) for data analytics. It is designed to be self-taught as preparation for other courses that build on the concepts covered. Topics include:
+This site provides a foundation in using the [R programming
+language](https://www.r-project.org/) for data analytics. It is designed
+to be self-taught as preparation for other courses that build on the
+concepts covered. Topics include:
 
-- Data input/output
-- Data structures (vectors, data frames, lists)
-- Data wrangling
-- Data visualization
-- External packages
-- Reproducible reporting
+  - Data input/output
+  - External packages
+  - Data structures (vectors, data frames, lists)
+  - Data wrangling
+  - Data visualization
+  - Reproducible reporting

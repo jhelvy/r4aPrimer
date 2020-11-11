@@ -30,18 +30,9 @@ source("knitr_setup.R")
 [[online - pay what you want](https://leanpub.com/exdata)]
 - [16 HOWTO's](https://bookdown.org/lyzhang10/lzhang_r_tips_book/), by Lingyun Zhang
 
-# RMarkdown
-
-- [Andrew Heiss's Markdown guide](https://evalsp20.classes.andrewheiss.com/reference/markdown/)
-- [60 second markdown guide](https://commonmark.org/help/)
-- [10 minute markdown tutorial](https://commonmark.org/help/tutorial/)
-- [Markdown It](https://markdown-it.github.io): Quickly demo Markdown code.
-- [Table generator](http://www.tablesgenerator.com/): Create tables and get export code for multiple formats.
-- [CMU RMarkdown guide (very detailed)](http://www.stat.cmu.edu/~cshalizi/rmarkdown/)
-
 # RStudio "Cheatsheets"
 
 - [All cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 - [Data wrangling with the `dplyr` library](https://resources.rstudio.com/the-essentials-of-data-science/data-transformation)
 - [Data visualization with the `ggplot2` library](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-- [RMarkdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+- <i class="fas fa-file-pdf"></i> [RMarkdown](other/rmarkdown-cheatsheet.pdf)

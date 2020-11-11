@@ -14,8 +14,8 @@ navbar:
           href: L0-course-prep.html
         - text: "1: Getting Started"
           href: L1-getting-started.html
-        - text: "2: Vectors"
-          href: L2-vectors.html
+        - text: "2: Data Types & Vectors"
+          href: L2-data-types-vectors.html
         - text: "3: Data Frames"
           href: L3-data-frames.html
         - text: "4: Data Wrangling"
