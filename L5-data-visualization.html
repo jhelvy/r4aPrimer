@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -169,33 +169,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 64px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -413,7 +413,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">RDAB</a>
+      <a class="navbar-brand" href="index.html">R4A Primer</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -433,25 +433,19 @@ div.tocify {
       <a href="L1-getting-started.html">1: Getting Started</a>
     </li>
     <li>
-      <a href="L2-operators-data-types.html">2: Operators &amp; Data Types</a>
+      <a href="L2-vectors.html">2: Vectors</a>
     </li>
     <li>
-      <a href="L3-functions-packages.html">3: Functions &amp; Packages</a>
+      <a href="L3-data-frames.html">3: Data Frames</a>
     </li>
     <li>
-      <a href="L4-vectors.html">4: Vectors</a>
+      <a href="L4-data-wrangling.html">4: Data Wrangling</a>
     </li>
     <li>
-      <a href="L5-data-frames.html">5: Data Frames</a>
+      <a href="L5-data-visualization.html">5: Data Visualization</a>
     </li>
     <li>
-      <a href="L6-data-wrangling.html">6: Data Wrangling</a>
-    </li>
-    <li>
-      <a href="L7-data-visualization.html">7: Data Visualization</a>
-    </li>
-    <li>
-      <a href="L8-reproducible-reporting.html">8: Reproducible Reporting</a>
+      <a href="L6-reproducible-reporting.html">6: Reproducible Reporting</a>
     </li>
   </ul>
 </li>
@@ -498,7 +492,7 @@ div.tocify {
   <a href="https://rstudio.seas.gwu.edu/">
     <span class="fab fa-r-project"></span>
      
-    RStudio Server
+    
   </a>
 </li>
       </ul>
@@ -693,7 +687,7 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 <h2>Scatterplots with <code>plot()</code></h2>
 <p>A scatter plot provides a graphical view of the relationship between two variables. Typically these are used for “continuous” variables, like <em>time</em>, <em>age</em>, <em>money</em>, etc…things that are not categorical in nature (as opposed to “discrete” variables, like <em>nationality</em>). Here’s a scatterplot of the age of the bear killing victims over time:</p>
 <pre class="r"><code>plot(x = df$year, y = df$age)</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The basic inputs to the <code>plot()</code> function are <code>x</code> and <code>y</code>, which must be vectors of the same length. You can customize many features (fonts, colors, axes, shape, titles, etc.) through <a href="http://www.statmethods.net/advgraphs/parameters.html">graphic options</a>. Here’s the same plot with a few customizations:</p>
 <pre class="r"><code>plot(x    = df$year,
      y    = df$age,
@@ -702,14 +696,14 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
      main = &quot;Age of bear killing victims over time&quot;,
      xlab = &quot;Year&quot;,
      ylab = &quot;Age&quot;)</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Looks like bear killings are becoming more frequent over time (hmm, why might that be?), though pretty evenly-distributed across age.</p>
 </div>
 <div id="histograms-with-hist" class="section level2">
 <h2>Histograms with <code>hist()</code></h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Histogram">histogram</a> is one of the most common ways to visualize the <em>distribution</em> of a variable. The <code>hist()</code> function takes just one variable: <code>x</code>. Here’s a histogram of the <code>month</code> variable:</p>
 <pre class="r"><code>hist(x = df$month)</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>As you might expect, most bear attacks occur during the summer months, when parks get more visitors. As with the <code>plot()</code> function, you can customize a lot of the histogram features. One common customization is to modify the number of “bins” in the histogram by changing the <code>breaks</code> argument. Here we’ll fix the number of bins to <code>12</code> - one for each month:</p>
 <pre class="r"><code>hist(x      = df$month,
      breaks = 12,
@@ -717,7 +711,7 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
      main   = &quot;Distribution of bear killings by month&quot;,
      xlab   = &quot;Month&quot;,
      ylab   = &quot;Count&quot;)</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="advanced-figures-with-ggplot2" class="section level1">
@@ -738,7 +732,7 @@ library(ggplot2)</code></pre>
 <h2>A blank slate</h2>
 <p>The <code>ggplot()</code> function is used to initialize the basic graph structure, and then we add layers to it. The basic idea is that you specify different parts of the plot, and add them together using the <code>+</code> operator. We will start with a blank plot and will add layers as we go along:</p>
 <pre class="r"><code>ggplot(data = df)</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geoms-and-aesthetics" class="section level2">
 <h2>Geoms and aesthetics</h2>
@@ -764,7 +758,7 @@ library(ggplot2)</code></pre>
 <p>Now that we know what geoms and aesthetics are, let’s put them to practice by making a scatterplot. To start, we will add the <code>geom_point()</code> geom and we’ll set the position for the x- and y-axis inside the <code>aes()</code> function:</p>
 <pre class="r"><code>ggplot(data = df) +
     geom_point(aes(x = year, y = age))</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-9-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-9-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Notice how we’ve “added” the <code>geom_point()</code> layer to the previous blank slate. Also note that the names we used to define the <code>x</code> and <code>y</code> axes are column names in the data frame, <code>df</code>. These must be placed <em>inside</em> the <code>aes()</code> function, which tells ggplot to look in <code>df</code> for those columns.</p>
 <p>Let’s further customize the plot with a few more layers:</p>
 <pre class="r"><code>ggplot(data = df) +
@@ -775,7 +769,7 @@ library(ggplot2)</code></pre>
          title = &quot;Age of bear killing victims over time&quot;) +
     # Change some of the overall plot looks
     theme_minimal()</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-10-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-10-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>In the above plot, the <code>labs()</code> layer enables you to modify the plot labels and title. The <code>theme_minimal()</code> layer changes some global aspects of the plot, such as the background color, grid lines, legend appearance, etc. There are <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">many themes to choose from</a>, but keeping things simple with <code>theme_minimal()</code> often improves the plot from the default theme settings.</p>
 </div>
 <div id="histograms-with-geom_bar" class="section level2">
@@ -783,7 +777,7 @@ library(ggplot2)</code></pre>
 <p>Bar charts are great for comparing different values of a numerical variable. By default, the <code>geom_bar()</code> layer works just like a histogram in that it plots a count of the variable provided. For example, here is the same histogram as before - the count of the bear attacks for each month in the dataset:</p>
 <pre class="r"><code>ggplot(data = df) +
     geom_bar(aes(x = month))</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>One useful feature of bar plots is to “fill” the color of the bars by another variable in the data. To do this, add the <code>fill=</code> argument in the <code>aes()</code> call. For example, here’s the same histogram with the bar colors representing the type of bear. I’ll also adjust the x-axis so that it labels the 12 months, and I’ll adjust the theme and labels:</p>
 <pre class="r"><code>ggplot(data = df) +
     geom_bar(aes(x = month, fill = bearType)) +
@@ -796,7 +790,7 @@ library(ggplot2)</code></pre>
          title = &quot;Distribution of bear killings by month&quot;) +
     # Change some of the overall plot looks
     theme_minimal()</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Hmm, looks like brown bears are the most frequent killers, though black bears are a close second.</p>
 </div>
 <div id="bar-charts-with-geom_bar" class="section level2">
@@ -811,7 +805,7 @@ ggplot(data = annualKillings) +
          y     = &#39;Number of killings&#39;,
          title = &quot;Annual number of deadly bear attacks over time&quot;) +
     theme_minimal()</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Just like with histograms, you can “fill” the color of the bars with another variable. Let’s see how the number of incidents vary by the gender of the victim. Notice again how we first use the <code>count()</code> function to compute the number of killings by gender:</p>
 <pre class="r"><code>annualKillingsByGender &lt;- df %&gt;%
     filter(! is.na(gender)) %&gt;%
@@ -824,7 +818,7 @@ ggplot(data = annualKillingsByGender) +
          fill = &quot;Victim gender&quot;,
          title = &quot;Annual deadly bear attacks over time and victim gender&quot;) +
     theme_minimal()</code></pre>
-<p><img src="L7-data-visualization_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="L5-data-visualization_files/figure-html/unnamed-chunk-14-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="customizing-your-ggplot" class="section level1">

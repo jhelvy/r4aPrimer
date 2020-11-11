@@ -11,7 +11,7 @@
 
 
 
-<title>R for Data Analysis Bootcamp</title>
+<title>README.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -312,6 +315,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -319,6 +391,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -455,30 +537,32 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">R for Data Analysis Bootcamp</h1>
 
 </div>
 
 
-<p><strong>Department</strong>: <a href="https://www.emse.seas.gwu.edu/">Engineering Management and Systems Engineering</a> @ <a href="https://www.gwu.edu/">GWU</a></p>
-<p><strong>Description</strong>:</p>
-<p>This course provides a <em>quick</em> foundation in using the <a href="https://www.r-project.org/">R programming language</a> for data analytics. It is designed to be self-taught as preparation for other courses that build on the concepts covered. Topics include:</p>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<div id="r4aprimer" class="section level1">
+<h1><span class="header-section-number">1</span> r4aPrimer</h1>
+<!-- badges: start -->
+<p><img src="https://github.com/jhelvy//workflows/Render%20&amp;%20Deploy%20Site/badge.svg" alt="Render &amp; Deploy Site" /> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a> <!-- badges: end --></p>
+<div id="description" class="section level3">
+<h3><span class="header-section-number">1.0.1</span> Description</h3>
+<p>This site provides a <em>quick</em> foundation in using the <a href="https://www.r-project.org/">R programming language</a> for data analytics. It is designed to be self-taught as preparation for other courses that build on the concepts covered. Topics include:</p>
 <ul>
 <li>Data input/output</li>
+<li>External packages</li>
 <li>Data structures (vectors, data frames, lists)</li>
 <li>Data wrangling</li>
 <li>Data visualization</li>
-<li>External packages</li>
 <li>Reproducible reporting</li>
 </ul>
-<p><strong>Learning Objectives</strong>:</p>
-<p>Having successfully completed this course, students will be able to:</p>
-<ul>
-<li>Write clear, robust, and reasonably efficient code for working with data in R using vectors, data frames, and lists.</li>
-<li>Reproducibly import, export, wrangle, and visualize data.</li>
-</ul>
-<p><strong>Prerequisites</strong>:</p>
-<p>There are no prerequisites. Students are assumed to have zero prior programming experience for this course.</p>
+</div>
+<div id="acknowledgments" class="section level3">
+<h3><span class="header-section-number">1.0.2</span> Acknowledgments</h3>
+<p>This course was inspired by many other courses / resources that cover similar material - see the course <a href="http://jhelvy.github.io/r4aPrimer/about.html">about page</a> for more details.</p>
+</div>
+</div>
 
 
 <hr>
@@ -497,6 +581,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -529,6 +615,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

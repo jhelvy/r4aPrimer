@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -25,8 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -89,15 +89,6 @@ tr:last-child {
 }
 
 </style>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -178,33 +169,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 64px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -422,13 +413,13 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">R-DAB</a>
+      <a class="navbar-brand" href="index.html">R4A Primer</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-book"></span>
+    <span class="fa fa-book"></span>
      
     Lessons
      
@@ -442,31 +433,25 @@ div.tocify {
       <a href="L1-getting-started.html">1: Getting Started</a>
     </li>
     <li>
-      <a href="L2-operators-data-types.html">2: Operators &amp; Data Types</a>
+      <a href="L2-vectors.html">2: Vectors</a>
     </li>
     <li>
-      <a href="L3-functions-packages.html">3: Functions &amp; Packages</a>
+      <a href="L3-data-frames.html">3: Data Frames</a>
     </li>
     <li>
-      <a href="L4-vectors.html">4: Vectors</a>
+      <a href="L4-data-wrangling.html">4: Data Wrangling</a>
     </li>
     <li>
-      <a href="L5-data-frames.html">5: Data Frames</a>
+      <a href="L5-data-visualization.html">5: Data Visualization</a>
     </li>
     <li>
-      <a href="L6-data-wrangling.html">6: Data Wrangling</a>
-    </li>
-    <li>
-      <a href="L7-data-visualization.html">7: Data Visualization</a>
-    </li>
-    <li>
-      <a href="L8-reproducible-reporting.html">8: Reproducible Reporting</a>
+      <a href="L6-reproducible-reporting.html">6: Reproducible Reporting</a>
     </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="far fa far fa-bookmark"></span>
+    <span class="far fa-bookmark"></span>
      
     References
      
@@ -475,28 +460,28 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa fa fa-terminal"></span>
+        <span class="fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa fa fa-chart-bar"></span>
+        <span class="fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa fa fa-feather-alt"></span>
+        <span class="fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa fa fa-expand"></span>
+        <span class="fa fa-expand"></span>
          
         Other
       </a>
@@ -505,7 +490,7 @@ div.tocify {
 </li>
 <li>
   <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa fab fa-r-project"></span>
+    <span class="fab fa-r-project"></span>
      
     
   </a>
@@ -514,7 +499,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bars"></span>
+    <span class="fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -522,21 +507,21 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa fa fa-info-circle"></span>
+        <span class="fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa fa fa-gavel"></span>
+        <span class="fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/emse-eda-gwu/rdab">
-        <span class="fa fa fa fa-github"></span>
+        <span class="fa fa-github"></span>
          
         Source files
       </a>
@@ -865,6 +850,30 @@ Cases_matter &lt;- 3</code></pre>
 <pre><code>## [1] 12</code></pre>
 <p>A helpful rule of thumb to remember is that <strong>brackets always come first</strong>. So, if you’re ever unsure about what order R will do things in, an easy solution is to enclose the thing you want it to do first in brackets.</p>
 </div>
+<div id="r-ignores-excess-spacing" class="section level2">
+<h2>R ignores excess spacing</h2>
+<p>When I typed <code>3 + 4</code> before, I could equally have done this</p>
+<pre class="r"><code>3        + 4</code></pre>
+<pre><code>## [1] 7</code></pre>
+<p>or this</p>
+<pre class="r"><code>            3   + 4</code></pre>
+<pre><code>## [1] 7</code></pre>
+<p>Both produce the same result. The point here is that R ignores extra spaces. This may seem irrelevant for now, but in some programming languages (e.g. Python) blank spaces matter a lot!</p>
+<p>This doesn’t mean extra spaces <em>never</em> matter. For example, if you wanted to input the value <code>3.14</code> but you put a space after the <code>3</code>, you’ll get an error:</p>
+<pre class="r"><code>3   .14</code></pre>
+<pre><code>## Error: &lt;text&gt;:1:5: unexpected numeric constant
+## 1: 3   .14
+##         ^</code></pre>
+<p>Basically, you can put spaces between <em>different</em> values, and you can put as many as you want and R won’t care. But if you break a value up with a space, R will send an error message.</p>
+</div>
+<div id="using-comments" class="section level2">
+<h2>Using comments</h2>
+<p>In R, the <code>#</code> symbol is a special symbol that denotes a comment. R will ignore anything on the same line that follows the <code>#</code> symbol. This enables us to write comments around our code to explain what we’re doing:</p>
+<pre class="r"><code>speed &lt;- 55 # This is km/h, not mph!
+speed</code></pre>
+<pre><code>## [1] 55</code></pre>
+<p>Notice that R ignores the whole sentence after the <code>#</code> symbol.</p>
+</div>
 </div>
 <div id="data-types" class="section level1">
 <h1>Data types</h1>
@@ -965,150 +974,6 @@ Cases_matter &lt;- 3</code></pre>
 <p><strong>No value</strong>: <code>NULL</code> asserts that the variable genuinely has no value whatsoever, or does not even exist.</p>
 </div>
 </div>
-<div id="what-else-can-r-do" class="section level1">
-<h1>What else can R do?</h1>
-<p>R can do a LOT more than what we’ve seen thus far. For example, you can ask R to print text to the console using the <code>cat()</code> function:</p>
-<pre class="r"><code>cat(&quot;Hello world!&quot;)</code></pre>
-<pre><code>## Hello world!</code></pre>
-<p>In the next section, we’ll learn more about some of the distinctions between different types of values in R (like numbers and characters).</p>
-<p>While R is a programming language, it is perhaps most commonly known as a tool for analyzing data and creating plots. For example, here’s how you can use R to make a simple plot of the equation <span class="math inline">\(y = x^2\)</span>:</p>
-<pre class="r"><code>x &lt;- seq(from = -10, to = 10)
-y &lt;- x^2
-plot(x, y)
-lines(x, y)</code></pre>
-<p><img src="L1-getting-started_files/figure-html/simple-plot-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>But you can plot way more than equations in R! For example, take a look at this plot of some <a href="https://allisonhorst.github.io/palmerpenguins/">actual data about penguins</a> (don’t worry about the code for now - by the end of this course you’ll know what it all does!):</p>
-<pre class="r"><code>library(ggplot2)
-library(palmerpenguins)
-
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point(aes(color = species, shape = species),
-             size = 3, alpha = 0.8) +
-  scale_color_manual(values = c(&quot;darkorange&quot;,&quot;purple&quot;,&quot;cyan4&quot;)) +
-  theme_minimal() +
-  labs(title = &quot;Penguin size, Palmer Station LTER&quot;,
-       subtitle = &quot;Flipper length and body mass for Adelie, Chinstrap, and Gentoo Penguins&quot;,
-       x = &quot;Flipper length (mm)&quot;,
-       y = &quot;Body mass (g)&quot;,
-       color = &quot;Penguin species&quot;,
-       shape = &quot;Penguin species&quot;) +
-  theme(legend.position = c(0.2, 0.7),
-        legend.background = element_rect(fill = &quot;white&quot;, color = NA),
-        plot.title.position = &quot;plot&quot;,
-        plot.caption = element_text(hjust = 0, face= &quot;italic&quot;),
-        plot.caption.position = &quot;plot&quot;)</code></pre>
-<p><img src="L1-getting-started_files/figure-html/mass-flipper-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="a-couple-more-important-points" class="section level1">
-<h1>A couple more important points</h1>
-<div id="r-ignores-excess-spacing" class="section level2">
-<h2>R ignores excess spacing</h2>
-<p>When I typed <code>3 + 4</code> before, I could equally have done this</p>
-<pre class="r"><code>3        + 4</code></pre>
-<pre><code>## [1] 7</code></pre>
-<p>or this</p>
-<pre class="r"><code>            3   + 4</code></pre>
-<pre><code>## [1] 7</code></pre>
-<p>Both produce the same result. The point here is that R ignores extra spaces. This may seem irrelevant for now, but in some programming languages (e.g. Python) blank spaces matter a lot!</p>
-<p>This doesn’t mean extra spaces <em>never</em> matter. For example, if you wanted to input the value <code>3.14</code> but you put a space after the <code>3</code>, you’ll get an error:</p>
-<pre class="r"><code>3   .14</code></pre>
-<pre><code>## Error: &lt;text&gt;:1:5: unexpected numeric constant
-## 1: 3   .14
-##         ^</code></pre>
-<p>Basically, you can put spaces between <em>different</em> values, and you can put as many as you want and R won’t care. But if you break a value up with a space, R will send an error message.</p>
-</div>
-<div id="using-comments" class="section level2">
-<h2>Using comments</h2>
-<p>In R, the <code>#</code> symbol is a special symbol that denotes a comment. R will ignore anything on the same line that follows the <code>#</code> symbol. This enables us to write comments around our code to explain what we’re doing:</p>
-<pre class="r"><code>speed &lt;- 55 # This is km/h, not mph!
-speed</code></pre>
-<pre><code>## [1] 55</code></pre>
-<p>Notice that R ignores the whole sentence after the <code>#</code> symbol.</p>
-</div>
-</div>
-<div id="staying-organized" class="section level1">
-<h1>Staying organized</h1>
-<div id="the-history-pane" class="section level2">
-<h2>The history pane</h2>
-<p>R keeps track of your “command history.” If you click on the console and hit the “up” key, the R console will show you the most recent command that you’ve typed. Hit it again, and it will show you the command before that, and so on.</p>
-<p>The second way to get access to your command history is to look at the history panel in Rstudio. On the upper right hand side of the Rstudio window you’ll see a tab labeled “History.” Click on that and you’ll see a list of all your recent commands displayed in that panel. It should look something like this:</p>
-<center>
-<img src="images/rstudio_history.png" width=600>
-</center>
-<p>If you double click on one of the commands, it will be copied to the R console.</p>
-</div>
-<div id="working-directory" class="section level2">
-<h2>Working directory</h2>
-<p>Any process running on your computer has a notion of its “working directory”. In R, this is where R will look for files you ask it to load. It’s also where any files you write to disk will go.</p>
-<p>You can explicitly check your working directory with:</p>
-<pre class="r"><code>getwd()</code></pre>
-<p>It is also displayed at the top of the RStudio console.</p>
-<p>As a beginning R user, it’s OK let your home directory or any other weird directory on your computer be R’s working directory. <em>Very soon</em>, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R’s working directory to the associated directory.</p>
-<p><strong>Although I do not recommend it</strong>, in case you’re curious, you can set R’s working directory at the command line like so:</p>
-<pre class="r"><code>setwd(&quot;~/myCoolProject&quot;)</code></pre>
-<p><strong>Although I do not recommend it</strong>, you can also use RStudio’s Files pane to navigate to a directory and then set it as working directory from the menu:</p>
-<blockquote>
-<p>Session &gt; Set Working Directory &gt; To Files Pane Location.</p>
-</blockquote>
-<p>You’ll see even more options there). Or within the Files pane, choose <strong>More</strong> and <strong>Set As Working Directory</strong>.</p>
-<p>But there’s a better way. A way that also puts you on the path to managing your R work like an expert.</p>
-</div>
-<div id="rstudio-projects" class="section level2">
-<h2>RStudio projects</h2>
-<p>Keeping all the files associated with a project organized together – input data, R scripts, analytical results, figures – is such a wise and common practice that RStudio has built-in support for this via its <em>projects</em>.</p>
-<p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Using Projects</a></p>
-<p>Let’s make one for practice. Do this:</p>
-<blockquote>
-<p>File &gt; New Project ….</p>
-</blockquote>
-<p>You should see the following pane:</p>
-<center>
-<img src="images/rstudio_new_project.png" width=500>
-</center>
-<p>Choose “New Directory”. The directory name you choose here will be the project name. Call it whatever you want. RStudio will create a folder with that name to put all your project files.</p>
-<p>As a demo, I created a project on my Desktop called “demo”. RStudio created a new project called “demo”, and in this folder there is a file called “demo.Rproj”. If I double-click on this file, RStudio will open up, and my working directory will be automatically set to this folder! You can double check this by typing:</p>
-<pre class="r"><code>getwd()</code></pre>
-</div>
-<div id="save-your-code-in-.r-files" class="section level2">
-<h2>Save your code in .R Files</h2>
-<p>It is traditional to save R scripts with a <code>.R</code> or <code>.r</code> suffix. Any code you wish to re-run again later should be saved in this way and stored within your project folder. For example, if you wanted to re-run all of the code in this tutorial, open a new <code>.R</code> file and save it to your R project folder. Do this:</p>
-<blockquote>
-<p>File &gt; New File &gt; R Script</p>
-</blockquote>
-<p>You can copy some of the code we’ve typed so far into this file to re-run it again later:</p>
-<pre class="r"><code>3 + 4
-3 + &quot;4&quot;
-x &lt;- 2
-x
-x &lt;- 42
-x
-this_is_a_long_name &lt;- 2.5
-cases_matter &lt;- 2
-Cases_matter &lt;- 3
-cases_matter
-Cases_matter
-objects()
-ls()
-rm(x)
-rm(list = ls())
-cat(&quot;Hello world!&quot;)
-x &lt;- seq(from = -10, to = 10)
-y &lt;- x^2
-plot(x, y)
-lines(x, y)
-3        + 4
-            3   + 4
-2 + 2 # I&#39;m adding two numbers
-getwd()</code></pre>
-<p>Then save this new R script with some name. Do this:</p>
-<blockquote>
-<p>File &gt; Save</p>
-</blockquote>
-<p>I called the file “tutorial.R” and saved it in my R project folder called “demo”.</p>
-<p>Now when I open the “demo.Rproj” file, I see in my files pane the “tutorial.R” code script. I can click on that file and continue editing it!</p>
-<p>I can also run any line in the script by typing “Command + Enter” (Mac) or “Control + Enter” (Windows).</p>
-</div>
-</div>
 <div id="functions" class="section level1">
 <h1>Functions</h1>
 <p>You can do a lot with the basic operators like <code>+</code>, <code>-</code>, and <code>*</code>, but to do more advanced calculations you’re going to need to start using functions.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
@@ -1121,7 +986,7 @@ getwd()</code></pre>
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”.</p>
 <p>Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Tue Nov 10 12:40:54 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Nov 10 20:32:24 2020&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="multiple-arguments" class="section level2">
 <h2>Multiple arguments</h2>
@@ -1340,9 +1205,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 26 December 2016. The United Nations Security Council adopts a resolution condemning Israeli settlements in the West Bank. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 11 March 2019. Muhammadu Buhari is re-elected President of Nigeria. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that Howard B. Meek was the founder and dean of the first college to train professional hotel managers? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Ingrid Bergman won Emmy and Sylvania Awards for her world television debut in John Frankenheimer&#39;s horror movie The Turn of the Screw? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -1353,10 +1218,93 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that a 2003 English court case ruled that someone who lies about having sharp items in their pocket while being searched can be charged with assault if the searcher is injured as a result? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 02 September 2015. The ancient temples of Bel (pictured in 2010) and Baalshamin in Palmyra are destroyed by the Islamic State of Iraq and the Levant. (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
+</div>
+</div>
+<div id="staying-organized" class="section level1">
+<h1>Staying organized</h1>
+<div id="the-history-pane" class="section level2">
+<h2>The history pane</h2>
+<p>R keeps track of your “command history.” If you click on the console and hit the “up” key, the R console will show you the most recent command that you’ve typed. Hit it again, and it will show you the command before that, and so on.</p>
+<p>The second way to get access to your command history is to look at the history panel in Rstudio. On the upper right hand side of the Rstudio window you’ll see a tab labeled “History.” Click on that and you’ll see a list of all your recent commands displayed in that panel. It should look something like this:</p>
+<center>
+<img src="images/rstudio_history.png" width=600>
+</center>
+<p>If you double click on one of the commands, it will be copied to the R console.</p>
+</div>
+<div id="working-directory" class="section level2">
+<h2>Working directory</h2>
+<p>Any process running on your computer has a notion of its “working directory”. In R, this is where R will look for files you ask it to load. It’s also where any files you write to disk will go.</p>
+<p>You can explicitly check your working directory with:</p>
+<pre class="r"><code>getwd()</code></pre>
+<p>It is also displayed at the top of the RStudio console.</p>
+<p>As a beginning R user, it’s OK let your home directory or any other weird directory on your computer be R’s working directory. <em>Very soon</em>, I urge you to evolve to the next level, where you organize your analytical projects into directories and, when working on project A, set R’s working directory to the associated directory.</p>
+<p><strong>Although I do not recommend it</strong>, in case you’re curious, you can set R’s working directory at the command line like so:</p>
+<pre class="r"><code>setwd(&quot;~/myCoolProject&quot;)</code></pre>
+<p><strong>Although I do not recommend it</strong>, you can also use RStudio’s Files pane to navigate to a directory and then set it as working directory from the menu:</p>
+<blockquote>
+<p>Session &gt; Set Working Directory &gt; To Files Pane Location.</p>
+</blockquote>
+<p>You’ll see even more options there). Or within the Files pane, choose <strong>More</strong> and <strong>Set As Working Directory</strong>.</p>
+<p>But there’s a better way. A way that also puts you on the path to managing your R work like an expert.</p>
+</div>
+<div id="rstudio-projects" class="section level2">
+<h2>RStudio projects</h2>
+<p>Keeping all the files associated with a project organized together – input data, R scripts, analytical results, figures – is such a wise and common practice that RStudio has built-in support for this via its <em>projects</em>.</p>
+<p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Using Projects</a></p>
+<p>Let’s make one for practice. Do this:</p>
+<blockquote>
+<p>File &gt; New Project ….</p>
+</blockquote>
+<p>You should see the following pane:</p>
+<center>
+<img src="images/rstudio_new_project.png" width=500>
+</center>
+<p>Choose “New Directory”. The directory name you choose here will be the project name. Call it whatever you want. RStudio will create a folder with that name to put all your project files.</p>
+<p>As a demo, I created a project on my Desktop called “demo”. RStudio created a new project called “demo”, and in this folder there is a file called “demo.Rproj”. If I double-click on this file, RStudio will open up, and my working directory will be automatically set to this folder! You can double check this by typing:</p>
+<pre class="r"><code>getwd()</code></pre>
+</div>
+<div id="save-your-code-in-.r-files" class="section level2">
+<h2>Save your code in .R Files</h2>
+<p>It is traditional to save R scripts with a <code>.R</code> or <code>.r</code> suffix. Any code you wish to re-run again later should be saved in this way and stored within your project folder. For example, if you wanted to re-run all of the code in this tutorial, open a new <code>.R</code> file and save it to your R project folder. Do this:</p>
+<blockquote>
+<p>File &gt; New File &gt; R Script</p>
+</blockquote>
+<p>You can copy some of the code we’ve typed so far into this file to re-run it again later:</p>
+<pre class="r"><code>3 + 4
+3 + &quot;4&quot;
+x &lt;- 2
+x
+x &lt;- 42
+x
+this_is_a_long_name &lt;- 2.5
+cases_matter &lt;- 2
+Cases_matter &lt;- 3
+cases_matter
+Cases_matter
+objects()
+ls()
+rm(x)
+rm(list = ls())
+cat(&quot;Hello world!&quot;)
+x &lt;- seq(from = -10, to = 10)
+y &lt;- x^2
+plot(x, y)
+lines(x, y)
+3        + 4
+            3   + 4
+2 + 2 # I&#39;m adding two numbers
+getwd()</code></pre>
+<p>Then save this new R script with some name. Do this:</p>
+<blockquote>
+<p>File &gt; Save</p>
+</blockquote>
+<p>I called the file “tutorial.R” and saved it in my R project folder called “demo”.</p>
+<p>Now when I open the “demo.Rproj” file, I see in my files pane the “tutorial.R” code script. I can click on that file and continue editing it!</p>
+<p>I can also run any line in the script by typing “Command + Enter” (Mac) or “Control + Enter” (Windows).</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
 <p>Some content on this page has been modified from other courses, including:</p>
@@ -1406,7 +1354,7 @@ bananas::fruitName()</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
