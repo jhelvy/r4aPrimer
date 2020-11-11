@@ -41,7 +41,8 @@ Imports:
     rmarkdown,
     fontawesome,
     palmerpenguins,
-    kableExtra
+    kableExtra,
+    emo
 Remotes:
     jhelvy/rmarkdown,
     allisonhorst/palmerpenguins,
