@@ -53,7 +53,7 @@ navbar:
       href: LICENSE.html
     - text: Source files
       icon: fa fa-github
-      href: https://github.com/emse-eda-gwu/rdab
+      href: https://github.com/jhelvy/r4aprimer
 
 output:
   html_document:
