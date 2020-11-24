@@ -520,7 +520,7 @@ div.tocify {
       </a>
     </li>
     <li>
-      <a href="https://github.com/emse-eda-gwu/rdab">
+      <a href="https://github.com/jhelvy/r4aprimer">
         <span class="fa fa-github"></span>
          
         Source files
@@ -572,7 +572,7 @@ div.tocify {
 </ol>
 <pre class="r"><code>download.file(
     url = &quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/data/wildlife_impacts.csv&quot;,
-    destfile = file.path(&#39;data&#39;, &#39;wildlife_impacts.csv&#39;)
+    destfile = here(&#39;data&#39;, &#39;wildlife_impacts.csv&#39;)
 )</code></pre>
 <p>For this lesson, we are going to use the <a href="https://wildlife.faa.gov/">FAA Wildlife Strike Database</a>, which contains records of reported wildlife strikes with aircraft since 1990. Since aircraft-wildlife impacts are voluntarily reported, the database only contains information from airlines, airports, pilots, and other sources and does not represent all strikes. Each row in the dataset holds information for a single strike event with the following columns:</p>
 <table>
@@ -699,7 +699,8 @@ div.tocify {
 <p>Let’s load our libraries and read in the data:</p>
 <pre class="r"><code>library(readr)
 library(dplyr)
-df &lt;- read_csv(file.path(&#39;data&#39;, &#39;wildlife_impacts.csv&#39;))</code></pre>
+library(here)
+df &lt;- read_csv(here(&#39;data&#39;, &#39;wildlife_impacts.csv&#39;))</code></pre>
 <p>Just like in the last lesson, a good starting point when working with a new dataset is to view some quick summaries. Here’s another summary function (<code>glimpse()</code>) that is similar to <code>str()</code>:</p>
 <pre class="r"><code>glimpse(df)</code></pre>
 <pre><code>## Rows: 56,978
@@ -1204,7 +1205,7 @@ df %&gt;%
               max_height = max(height))</code></pre>
 <pre><code>## `summarise()` regrouping output by &#39;state&#39; (override with `.groups` argument)</code></pre>
 <p>Save the the new <code>heightSummary</code> data frame as a CSV file in your “data_output” folder:</p>
-<pre class="r"><code>write_csv(heightSummary, path = file.path(&#39;data_output&#39;, &#39;heightSummary.csv&#39;)</code></pre>
+<pre class="r"><code>write_csv(heightSummary, path = here(&#39;data_output&#39;, &#39;heightSummary.csv&#39;)</code></pre>
 <hr />
 </div>
 <div id="tips" class="section level1">

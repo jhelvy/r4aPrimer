@@ -520,7 +520,7 @@ div.tocify {
       </a>
     </li>
     <li>
-      <a href="https://github.com/emse-eda-gwu/rdab">
+      <a href="https://github.com/jhelvy/r4aprimer">
         <span class="fa fa-github"></span>
          
         Source files
@@ -885,7 +885,7 @@ speed</code></pre>
 <pre><code>## [1] 15</code></pre>
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”. Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Wed Nov 11 15:36:59 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Nov 24 21:48:28 2020&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="frequently-used-functions" class="section level2">
 <h2><span class="header-section-number">6.1</span> Frequently used functions</h2>
@@ -1022,9 +1022,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 05 October 2019. A privately owned Boeing B-17 Flying Fortress (pictured) crashes in Connecticut, United States, killing seven people and injuring seven others. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Pantaleon Hebenstreit invented the pantalon, a keyboard instrument? (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that Matt Mobley set an Atlantic 10 basketball tournament record with nine 3-pointers in a victory over Richmond? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that when her uncles sought to take her land and send her to a nunnery, Hawys Gadarn took an audience with Edward II and returned with English troops to take back her castle? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -1035,7 +1035,7 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that the title of the book A Very Stable Genius comes from a tweet by Donald Trump? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that video game magazine GameStar called Warcraft III: The Frozen Throne the best add-on in PC gaming history? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
