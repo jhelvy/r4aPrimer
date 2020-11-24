@@ -35,8 +35,6 @@ Imports:
     gapminder,
     cowplot,
     janitor,
-    GGally,
-    HistData,
     hrbrthemes,
     ggthemes,
     remotes,
@@ -51,4 +49,5 @@ Remotes:
     rstudio/fontawesome,
     haozhu233/kableExtra,
     hadley/emo,
-    hrbrmstr/hrbrthemes
+    hrbrmstr/hrbrthemes,
+    jrnold/ggthemes
