@@ -5,7 +5,7 @@ output:
     toc: yes
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, setup, echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
@@ -40,7 +40,7 @@ Before we get started, let's set up our analysis environment:
 ```{r, eval=FALSE}
 download.file(
     url = "https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/data/wildlife_impacts.csv",
-    destfile = file.path('data', 'wildlife_impacts.csv')
+    destfile = here('data', 'wildlife_impacts.csv')
 )
 ```
 
@@ -75,7 +75,8 @@ Let's load our libraries and read in the data:
 ```{r, message=FALSE}
 library(readr)
 library(dplyr)
-df <- read_csv(file.path('data', 'wildlife_impacts.csv'))
+library(here)
+df <- read_csv(here('data', 'wildlife_impacts.csv'))
 ```
 
 Just like in the last lesson, a good starting point when working with a new dataset is to view some quick summaries. Here's another summary function (`glimpse()`) that is similar to `str()`:
@@ -400,7 +401,7 @@ heightSummary <- df %>%
 Save the the new `heightSummary` data frame as a CSV file in your "data_output" folder:
 
 ```{r, eval=FALSE}
-write_csv(heightSummary, path = file.path('data_output', 'heightSummary.csv')
+write_csv(heightSummary, path = here('data_output', 'heightSummary.csv')
 ```
 
 ---
