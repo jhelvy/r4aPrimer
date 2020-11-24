@@ -37,6 +37,8 @@ Imports:
     janitor,
     GGally,
     HistData,
+    hrbrthemes,
+    ggthemes,
     remotes,
     rmarkdown,
     fontawesome,
