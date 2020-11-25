@@ -56,7 +56,7 @@ Notice how the data frame is created - you just hand the `data.frame()` function
 
 ## The `tibble()` function
 
-The [tibble](https://r4ds.had.co.nz/tibbles.html) is an improved version of the Base R data frame, and it comes from the **dplyr** library (which we'll get into [next lesson](L11-da2-data-wrangling.html)). If you haven't already, go ahead and install and load the **dplyr** library now:
+The [tibble](https://r4ds.had.co.nz/tibbles.html) is an improved version of the Base R data frame, and it comes from the **dplyr** library (which we'll get into next lesson). If you haven't already, go ahead and install and load the **dplyr** library now:
 
 ```{r, eval=FALSE}
 install.packages('dplyr')
@@ -340,7 +340,7 @@ pathToData
 "/Users/jhelvy/Desktop/data_analysis_tutorial/data/msleep.csv"
 ```
 
-**Note**: Avoid hard-coding file paths (e.g. `'data/msleep.csv'`)! 
+**Note**: Avoid hard-coding file paths (e.g. `'data/msleep.csv'`)!
 
 This can break on different computers `r emo::ji("poop")``r emo::ji("poop")``r emo::ji("poop")`
 
