@@ -87,6 +87,15 @@ tr:last-child {
 
 </style>
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
   pre:not([class]) {
@@ -131,6 +140,7 @@ h6 {
   text-align: left;
 }
 </style>
+
 
 
 
@@ -337,7 +347,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-book"></span>
+    <span class="fa fa fa fa-book"></span>
      
     Lessons
      
@@ -377,29 +387,36 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="ref-example-analyses.html">
+        <span class="far fa-lightbulb"></span>
+         
+        Example Analyses
+      </a>
+    </li>
+    <li>
       <a href="ref-programming.html">
-        <span class="fa fa-terminal"></span>
+        <span class="fa fa fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa-chart-bar"></span>
+        <span class="fa fa fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa-feather-alt"></span>
+        <span class="fa fa fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa-expand"></span>
+        <span class="fa fa fa fa-expand"></span>
          
         Other
       </a>
@@ -417,7 +434,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bars"></span>
+    <span class="fa fa fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -425,21 +442,21 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa-info-circle"></span>
+        <span class="fa fa fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa-gavel"></span>
+        <span class="fa fa fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/jhelvy/r4aprimer">
-        <span class="fa fa-github"></span>
+        <span class="fa fa fa fa-github"></span>
          
         Source files
       </a>
@@ -470,7 +487,8 @@ $(document).ready(function () {
 <center>
     R for Analytics Primer | <a href="https://github.com/emse-eda-gwu/rdab"><i class="fab fa-github"></i></a>
     <br>
-    Copyright (c) 2020 </a><a href="https://www.jhelvy.com">John Paul Helveston.</a> See the <a href="LICENSE.html">licensing</a> page for details.
+    <a href="LICENSE.html">LICENSE: CC-BY-SA <br> <i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i> </a>
+
 </center>
 </div>
 
@@ -487,7 +505,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
