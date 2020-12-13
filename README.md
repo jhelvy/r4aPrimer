@@ -8,7 +8,7 @@
 ![Render & Deploy
 Site](https://github.com/jhelvy/r4aPrimer/workflows/Render%20&%20Deploy%20Site/badge.svg)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+CC-BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA-lightgrey)](https://creativecommons.org/licenses/by-sa/4.0/)
 <!-- badges: end -->
 
 **Description**:

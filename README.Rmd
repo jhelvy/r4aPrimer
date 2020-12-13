@@ -1,5 +1,7 @@
 ---
-output: github_document
+output:
+  github_document:
+    html_preview: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -17,8 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 ![Render & Deploy Site](https://github.com/jhelvy/r4aPrimer/workflows/Render%20&%20Deploy%20Site/badge.svg)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: CC-BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA-lightgrey)](https://creativecommons.org/licenses/by-sa/4.0/)
 <!-- badges: end -->
 
 **Description**:
