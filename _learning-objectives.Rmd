@@ -1,4 +1,7 @@
-Having successfully completed this course, students will be able to:
+After completing these lessons, you should be able to:
 
-- Write clear, robust, and reasonably efficient code for working with data in R.
-- Reproducibly import, export, wrangle, and visualize data.
+ - Use RStudio to write basic R commands.
+ - Know the distinctions between different R operators and data types, including numeric, string, and logical data.
+ - Use **tidyverse** functions to wrangle and manipulate data in R.
+ - Use the **ggplot2** library to create plots in R.
+ - Reproducibly import, export, wrangle, and visualize data.

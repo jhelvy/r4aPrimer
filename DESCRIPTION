@@ -44,8 +44,7 @@ Imports:
     kableExtra,
     emo
 Remotes:
-    jhelvy/rmarkdown,
-    allisonhorst/palmerpenguins,
+    rstudio/rmarkdown,
     rstudio/fontawesome,
     haozhu233/kableExtra,
     hadley/emo,

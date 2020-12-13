@@ -27,6 +27,9 @@ navbar:
     - text: "References"
       icon: far fa-bookmark
       menu:
+        - text: "Example Analyses"
+          icon: far fa-lightbulb
+          href: ref-example-analyses.html
         - text: "Programming in R"
           icon: fa fa-terminal
           href: ref-programming.html
