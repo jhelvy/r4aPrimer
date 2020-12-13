@@ -902,7 +902,7 @@ speed</code></pre>
 <pre><code>## [1] 15</code></pre>
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”. Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Sun Dec 13 11:35:57 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Sun Dec 13 19:14:23 2020&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="frequently-used-functions" class="section level2">
 <h2><span class="header-section-number">6.1</span> Frequently used functions</h2>
@@ -1039,9 +1039,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 27 February 2019. Green Book wins Best Picture and Bohemian Rhapsody wins in four categories (Best Actor recipient Rami Malek pictured) at the Academy Awards. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on February 24 in 1525 – A Spanish-Imperial army defeated a French force in the Battle of Pavia, the decisive engagement of the  Italian War of 1521–26. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that the Ayyubid sultan Saladin attempted, but failed, to capture the fortress of Masyaf (pictured), which served as the headquarters of the Assassins in Syria? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Hanging Sword Alley was also known as \&quot;Blood Bowl Alley\&quot; after its infamous night life? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -1052,7 +1052,7 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 28 June 2015. In an opinion authored by Justice Anthony Kennedy (pictured), the U.S. Supreme Court rules in favor of recognizing same-sex marriage nationwide. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on February 1 in 1884 – The first fascicle of the Oxford English Dictionary, a 352-page volume that covered words from A to Ant, was published. (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
@@ -1157,10 +1157,9 @@ getwd()</code></pre>
 
 <div>
 <center>
-    R for Analytics Primer | <a href="https://github.com/emse-eda-gwu/rdab"><i class="fab fa-github"></i></a>
+    <a href="https://github.com/jhelvy/r4aprimer">View the source code for this site <i class="fab fa-github"></i></a>
     <br>
-    <a href="LICENSE.html">LICENSE: CC-BY-SA <br> <i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i> </a>
-
+    <a href="LICENSE.html">LICENSE: CC-BY-SA <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a>
 </center>
 </div>
 
