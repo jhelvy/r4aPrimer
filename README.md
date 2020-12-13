@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 ![Render & Deploy
-Site](https://github.com/jhelvy//workflows/Render%20&%20Deploy%20Site/badge.svg)
+Site](https://github.com/jhelvy/r4aPrimer/workflows/Render%20&%20Deploy%20Site/badge.svg)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
