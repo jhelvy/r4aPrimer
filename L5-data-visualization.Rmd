@@ -133,8 +133,7 @@ hist(x      = df$month,
 
 # Advanced figures with `ggplot2`
 
-![](images/horst_monsters_ggplot2.png){ width=500 }
-[[Art by Allison Horst]](https://github.com/allisonhorst)
+<img src="images/horst_monsters_ggplot2.png" width=500> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 
 While Base R plot functions are useful for making simple, quick plots, many R users have adopted the [`ggplot2`](http://docs.ggplot2.org/) package as their primary tool for visualizing data.
 
@@ -247,48 +246,48 @@ df %>%
   group_by(year) %>%
   summarise(meanAge = mean(age)) %>% # Compute the mean age in each year
   ggplot() +
-  geom_col(aes(x = year, y = meanAge)) 
+  geom_col(aes(x = year, y = meanAge))
 ```
 
 # Customizing your ggplot
 
 There are lots of ways to tweak your ggplot to make it more aesthetically pleasing and easier for others to understand. We'll cover just two here: labels and themes.
 
-## Labels 
+## Labels
 
 You can change the labels of your plot by adding the `labs()` layer:
 
 ```{r, fig.height=4, fig.width=6}
 ggplot(data = df) +
-    geom_point(aes(x = year, y = age, color = gender)) + 
+    geom_point(aes(x = year, y = age, color = gender)) +
     labs(x = "Year",
          y = "Age",
          color = "Gender",
          title = "Age of bear killing victims over time",
-         subtitle = "A subtitle", 
+         subtitle = "A subtitle",
          caption = "Data source: Wikipedia")
 ```
 
-The `labs()` layer enables you to modify the labels of any of the variables that you have mapped in your `aes()` call, as well as some other labels like the title, subtitle, and caption. 
+The `labs()` layer enables you to modify the labels of any of the variables that you have mapped in your `aes()` call, as well as some other labels like the title, subtitle, and caption.
 
 ## Themes
 
-Adding theme layers can change some global aspects of the plot, such as the background color, grid lines, legend appearance, etc. There are [many themes to choose from](https://ggplot2.tidyverse.org/reference/ggtheme.html), but using simple themes like `theme_bw()` or `theme_minimal()` often improves the plot from the default theme settings: 
+Adding theme layers can change some global aspects of the plot, such as the background color, grid lines, legend appearance, etc. There are [many themes to choose from](https://ggplot2.tidyverse.org/reference/ggtheme.html), but using simple themes like `theme_bw()` or `theme_minimal()` often improves the plot from the default theme settings:
 
 ```{r, fig.height=4, fig.width=6}
 ggplot(data = df) +
-    geom_point(aes(x = year, y = age)) + 
+    geom_point(aes(x = year, y = age)) +
     theme_minimal()
 ```
 
 There are LOTS of other themes from external packages as well. Some of my favorites are `theme_ipsum()` and `theme_ft_rc()` from the [**hrbrthemes**](https://github.com/hrbrmstr/hrbrthemes) package:
 
 ```{r, eval=FALSE}
-library(hrbrthemes) 
+library(hrbrthemes)
 
 ggplot(data = df) +
-    geom_point(aes(x = year, y = age)) + 
-    theme_ipsum() 
+    geom_point(aes(x = year, y = age)) +
+    theme_ipsum()
 ```
 
 <center>
@@ -296,11 +295,11 @@ ggplot(data = df) +
 </center>
 
 ```{r, eval=FALSE}
-library(hrbrthemes) 
+library(hrbrthemes)
 
 ggplot(data = df) +
-    geom_point(aes(x = year, y = age)) + 
-    theme_ft_rc() 
+    geom_point(aes(x = year, y = age)) +
+    theme_ft_rc()
 ```
 
 <center>
@@ -310,10 +309,10 @@ ggplot(data = df) +
 Want to make a plot look fancy like those in the Economist magazine? Try `theme_economist()` from the [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) library:
 
 ```{r, fig.height=4, fig.width=6}
-library(ggthemes) 
+library(ggthemes)
 
 ggplot(data = df) +
-    geom_point(aes(x = year, y = age)) + 
+    geom_point(aes(x = year, y = age)) +
     theme_economist()
 ```
 
@@ -337,7 +336,7 @@ ggsave(filename = here('data', 'scatterPlot.pdf'),
        height = 4)
 ```
 
-# Other resources 
+# Other resources
 
 While the `ggplot2` library offers a wide variety of options for customizing your plots, remembering exactly how to do specific tasks (like changing the color of a line, or changing the position of a legend) can be difficult. Fortunately, there are wonderful resources for looking up all the tricks to make the perfect ggplot. Here are a few:
 

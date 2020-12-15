@@ -346,7 +346,7 @@ This can break on different computers `r emo::ji("poop")``r emo::ji("poop")``r e
 
 File paths create so many issues that the brilliant [Allison Horst](https://github.com/allisonhorst/stats-illustrations) even made this lovely art to remind us about the joy of the **here** package `r emo::ji("smile")`
 
-<img src="images/horst_monsters_here.png" width=500>
+<img src="images/horst_monsters_here.png" width=500> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 
 Once you've got your file path, you are now ready to load the data! The Base R function for reading in a csv file is called `read.csv()`, but it has some quirky aspects in how it formats the data (in particular, character variables). So instead we are going to use an improved function, `read_csv()`, from the `readr` package.
 

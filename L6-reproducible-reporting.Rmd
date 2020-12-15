@@ -55,8 +55,7 @@ Watch this 1-min video to get a quick sense of what RMarkdown is:
 
 # Elements of RMarkdown
 
-![](images/horst_monsters_rmarkdown.png){ width=500 }
-[[Art by Allison Horst]](https://github.com/allisonhorst)
+<img src="images/horst_monsters_rmarkdown.png" width=500> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 
 ## Markdown
 
