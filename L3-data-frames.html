@@ -944,7 +944,7 @@ pathToData</code></pre>
 <p><strong>Note</strong>: Avoid hard-coding file paths (e.g. <code>'data/msleep.csv'</code>)!</p>
 <p>This can break on different computers 💩💩💩</p>
 <p>File paths create so many issues that the brilliant <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a> even made this lovely art to remind us about the joy of the <strong>here</strong> package 😄</p>
-<p><img src="images/horst_monsters_here.png" width=500></p>
+<p><img src="images/horst_monsters_here.png" width=500> Art by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p>
 <p>Once you’ve got your file path, you are now ready to load the data! The Base R function for reading in a csv file is called <code>read.csv()</code>, but it has some quirky aspects in how it formats the data (in particular, character variables). So instead we are going to use an improved function, <code>read_csv()</code>, from the <code>readr</code> package.</p>
 <p>First, install the readr package if you haven’t already:</p>
 <pre class="r"><code>install.packages(&quot;readr&quot;)</code></pre>
