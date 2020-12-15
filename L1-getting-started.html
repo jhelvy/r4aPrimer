@@ -902,7 +902,7 @@ speed</code></pre>
 <pre><code>## [1] 15</code></pre>
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”. Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Sun Dec 13 19:22:04 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Dec 15 17:33:16 2020&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="frequently-used-functions" class="section level2">
 <h2><span class="header-section-number">6.1</span> Frequently used functions</h2>
@@ -1039,9 +1039,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on August 10 in 1901 – The Amalgamated Association of Iron, Steel and Tin Workers began an ultimately unsuccessful strike to reverse its declining fortunes and organize large numbers of new members. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 13 February 2017. Protests in Romania grow over the Romanian government&#39;s  proposals to decriminalize certain corruption cases. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that Kenny and the Kasuals&#39; \&quot;Journey to Tyme\&quot; is considered one of the earliest songs to incorporate elements of psychedelic music? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Japanese singer Asuka Ōkura made her music debut as her record label contract was about to expire? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -1052,7 +1052,7 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that as part of her journalism degree, sportscaster Kelly Crull worked at KOMU-TV? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 13 March 2018. The Winter Paralympics open (ceremony pictured) in Pyeongchang, South Korea. (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
