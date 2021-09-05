@@ -13,12 +13,21 @@
 
 <title>Data Frames</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -100,11 +109,6 @@ tr:last-child {
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -117,32 +121,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -153,10 +131,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -173,40 +147,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -234,7 +181,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -246,7 +193,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -257,10 +204,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -272,7 +232,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -404,7 +363,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -429,7 +388,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-book"></span>
+    <span class="fa fa-book"></span>
      
     Lessons
      
@@ -477,28 +436,28 @@ div.tocify {
     </li>
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa fa fa-terminal"></span>
+        <span class="fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa fa fa-chart-bar"></span>
+        <span class="fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa fa fa-feather-alt"></span>
+        <span class="fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa fa fa-expand"></span>
+        <span class="fa fa-expand"></span>
          
         Other
       </a>
@@ -516,7 +475,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bars"></span>
+    <span class="fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -524,21 +483,21 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa fa fa-info-circle"></span>
+        <span class="fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa fa fa-gavel"></span>
+        <span class="fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="https://github.com/jhelvy/r4aprimer">
-        <span class="fa fa fa fa-github"></span>
+        <span class="fa fa-github"></span>
          
         Source files
       </a>
@@ -550,7 +509,7 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -617,13 +576,13 @@ library(dplyr)</code></pre>
     deceased    = c(TRUE, FALSE, FALSE, TRUE)
 )
 beatles</code></pre>
-<pre><code>## [90m# A tibble: 4 x 5[39m
+<pre><code>## # A tibble: 4 × 5
 ##   firstName lastName  instrument yearOfBirth deceased
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;lgl&gt;[39m[23m   
-## [90m1[39m John      Lennon    guitar            [4m1[24m940 TRUE    
-## [90m2[39m Paul      McCartney bass              [4m1[24m942 FALSE   
-## [90m3[39m Ringo     Starr     drums             [4m1[24m940 FALSE   
-## [90m4[39m George    Harrison  guitar            [4m1[24m943 TRUE</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
+## 1 John      Lennon    guitar            1940 TRUE    
+## 2 Paul      McCartney bass              1942 FALSE   
+## 3 Ringo     Starr     drums             1940 FALSE   
+## 4 George    Harrison  guitar            1943 TRUE</code></pre>
 <p>Here we can see a couple of the differences that make tibbles a bit more intuitive to use:</p>
 <ol style="list-style-type: decimal">
 <li>It’s easier to see what type of data each column is because tibbles display this in between the <code>&lt;&gt;</code> symbols under each column name.</li>
@@ -664,13 +623,13 @@ instruments &lt;- tibble(
     instrument = c(&quot;guitar&quot;, &quot;bass&quot;, &quot;drums&quot;, &quot;guitar&quot;)
 )
 bind_cols(names, instruments)</code></pre>
-<pre><code>## [90m# A tibble: 4 x 3[39m
+<pre><code>## # A tibble: 4 × 3
 ##   firstName lastName  instrument
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     
-## [90m1[39m John      Lennon    guitar    
-## [90m2[39m Paul      McCartney bass      
-## [90m3[39m Ringo     Starr     drums     
-## [90m4[39m George    Harrison  guitar</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     
+## 1 John      Lennon    guitar    
+## 2 Paul      McCartney bass      
+## 3 Ringo     Starr     drums     
+## 4 George    Harrison  guitar</code></pre>
 <pre class="r"><code># Combine rows
 members1 &lt;- tibble(
     firstName = c(&quot;John&quot;, &quot;Paul&quot;),
@@ -681,23 +640,23 @@ members2 &lt;- tibble(
     lastName  = c(&quot;Starr&quot;, &quot;Harrison&quot;)
 )
 bind_rows(members1, members2)</code></pre>
-<pre><code>## [90m# A tibble: 4 x 2[39m
+<pre><code>## # A tibble: 4 × 2
 ##   firstName lastName 
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m    
-## [90m1[39m John      Lennon   
-## [90m2[39m Paul      McCartney
-## [90m3[39m Ringo     Starr    
-## [90m4[39m George    Harrison</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;    
+## 1 John      Lennon   
+## 2 Paul      McCartney
+## 3 Ringo     Starr    
+## 4 George    Harrison</code></pre>
 <p>Note that to combine rows, the column names must be the same. For example, if we change the second column name in <code>members2</code> to <code>"LASTNAME"</code>, you’ll get a data frame with three columns, two of which will have missing values:</p>
 <pre class="r"><code>colnames(members2) &lt;- c(&quot;firstName&quot;, &quot;LASTNAME&quot;)
 bind_rows(members1, members2)</code></pre>
-<pre><code>## [90m# A tibble: 4 x 3[39m
+<pre><code>## # A tibble: 4 × 3
 ##   firstName lastName  LASTNAME
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m   
-## [90m1[39m John      Lennon    [31mNA[39m      
-## [90m2[39m Paul      McCartney [31mNA[39m      
-## [90m3[39m Ringo     [31mNA[39m        Starr   
-## [90m4[39m George    [31mNA[39m        Harrison</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;   
+## 1 John      Lennon    &lt;NA&gt;    
+## 2 Paul      McCartney &lt;NA&gt;    
+## 3 Ringo     &lt;NA&gt;      Starr   
+## 4 George    &lt;NA&gt;      Harrison</code></pre>
 </div>
 </div>
 <div id="accessing-elements" class="section level1">
@@ -714,63 +673,63 @@ bind_rows(members1, members2)</code></pre>
 <pre><code>DF[ROWS, COLUMNS]</code></pre>
 <p>To index with integers, specify the row numbers and column numbers as vectors.</p>
 <pre class="r"><code>beatles[1, 2] # Select the element in row 1, column 2</code></pre>
-<pre><code>## [90m# A tibble: 1 x 1[39m
+<pre><code>## # A tibble: 1 × 1
 ##   lastName
-##   [3m[90m&lt;chr&gt;[39m[23m   
-## [90m1[39m Lennon</code></pre>
+##   &lt;chr&gt;   
+## 1 Lennon</code></pre>
 <pre class="r"><code>beatles[c(1, 2), c(2, 3)] # Select the elements in rows 1 &amp; 2 and columns 2 &amp; 3</code></pre>
-<pre><code>## [90m# A tibble: 2 x 2[39m
+<pre><code>## # A tibble: 2 × 2
 ##   lastName  instrument
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     
-## [90m1[39m Lennon    guitar    
-## [90m2[39m McCartney bass</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     
+## 1 Lennon    guitar    
+## 2 McCartney bass</code></pre>
 <pre class="r"><code>beatles[1:2, 2:3] # Same thing, but using the &quot;:&quot; operator</code></pre>
-<pre><code>## [90m# A tibble: 2 x 2[39m
+<pre><code>## # A tibble: 2 × 2
 ##   lastName  instrument
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     
-## [90m1[39m Lennon    guitar    
-## [90m2[39m McCartney bass</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     
+## 1 Lennon    guitar    
+## 2 McCartney bass</code></pre>
 <p>If you leave either the row or column index blank, it means “selects all”:</p>
 <pre class="r"><code>beatles[c(1, 2),] # Leaving the column index blank will select all columns</code></pre>
-<pre><code>## [90m# A tibble: 2 x 5[39m
+<pre><code>## # A tibble: 2 × 5
 ##   firstName lastName  instrument yearOfBirth deceased
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;lgl&gt;[39m[23m   
-## [90m1[39m John      Lennon    guitar            [4m1[24m940 TRUE    
-## [90m2[39m Paul      McCartney bass              [4m1[24m942 FALSE</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
+## 1 John      Lennon    guitar            1940 TRUE    
+## 2 Paul      McCartney bass              1942 FALSE</code></pre>
 <pre class="r"><code>beatles[,c(1, 2)] # Leaving the row index blank will select all rows</code></pre>
-<pre><code>## [90m# A tibble: 4 x 2[39m
+<pre><code>## # A tibble: 4 × 2
 ##   firstName lastName 
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m    
-## [90m1[39m John      Lennon   
-## [90m2[39m Paul      McCartney
-## [90m3[39m Ringo     Starr    
-## [90m4[39m George    Harrison</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;    
+## 1 John      Lennon   
+## 2 Paul      McCartney
+## 3 Ringo     Starr    
+## 4 George    Harrison</code></pre>
 <p>You can also use negative integers to specify rows or columns to be excluded:</p>
 <pre class="r"><code>beatles[-1, ] # Select all rows and except the first</code></pre>
-<pre><code>## [90m# A tibble: 3 x 5[39m
+<pre><code>## # A tibble: 3 × 5
 ##   firstName lastName  instrument yearOfBirth deceased
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;lgl&gt;[39m[23m   
-## [90m1[39m Paul      McCartney bass              [4m1[24m942 FALSE   
-## [90m2[39m Ringo     Starr     drums             [4m1[24m940 FALSE   
-## [90m3[39m George    Harrison  guitar            [4m1[24m943 TRUE</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
+## 1 Paul      McCartney bass              1942 FALSE   
+## 2 Ringo     Starr     drums             1940 FALSE   
+## 3 George    Harrison  guitar            1943 TRUE</code></pre>
 </div>
 <div id="using-character-indices" class="section level2">
 <h2><span class="header-section-number">2.3</span> Using character indices</h2>
 <p>You can use the column names to select elements in a data frame. If you do not include a <code>,</code> to designate which rows to select, R will return all the rows for the selected columns:</p>
 <pre class="r"><code>beatles[c(&#39;firstName&#39;, &#39;lastName&#39;)] # Select all rows for the &quot;firstName&quot; and &quot;lastName&quot; columns</code></pre>
-<pre><code>## [90m# A tibble: 4 x 2[39m
+<pre><code>## # A tibble: 4 × 2
 ##   firstName lastName 
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m    
-## [90m1[39m John      Lennon   
-## [90m2[39m Paul      McCartney
-## [90m3[39m Ringo     Starr    
-## [90m4[39m George    Harrison</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;    
+## 1 John      Lennon   
+## 2 Paul      McCartney
+## 3 Ringo     Starr    
+## 4 George    Harrison</code></pre>
 <pre class="r"><code>beatles[1:2, c(&#39;firstName&#39;, &#39;lastName&#39;)] # Select just the first two rows for the &quot;firstName&quot; and &quot;lastName&quot; columns</code></pre>
-<pre><code>## [90m# A tibble: 2 x 2[39m
+<pre><code>## # A tibble: 2 × 2
 ##   firstName lastName 
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m    
-## [90m1[39m John      Lennon   
-## [90m2[39m Paul      McCartney</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;    
+## 1 John      Lennon   
+## 2 Paul      McCartney</code></pre>
 </div>
 <div id="using-logical-indices" class="section level2">
 <h2><span class="header-section-number">2.4</span> Using logical indices</h2>
@@ -779,11 +738,11 @@ bind_rows(members1, members2)</code></pre>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE</code></pre>
 <p>Then, you could insert this logical vector in the row position of the <code>[]</code> brackets to filter only the rows that are <code>TRUE</code>:</p>
 <pre class="r"><code>beatles[beatles$deceased == FALSE,]</code></pre>
-<pre><code>## [90m# A tibble: 2 x 5[39m
+<pre><code>## # A tibble: 2 × 5
 ##   firstName lastName  instrument yearOfBirth deceased
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;lgl&gt;[39m[23m   
-## [90m1[39m Paul      McCartney bass              [4m1[24m942 FALSE   
-## [90m2[39m Ringo     Starr     drums             [4m1[24m940 FALSE</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
+## 1 Paul      McCartney bass              1942 FALSE   
+## 2 Ringo     Starr     drums             1940 FALSE</code></pre>
 </div>
 <div id="modifying-data-frames" class="section level2">
 <h2><span class="header-section-number">2.5</span> Modifying data frames</h2>
@@ -791,23 +750,23 @@ bind_rows(members1, members2)</code></pre>
 <p>For example, let’s create the variable <code>age</code> by subtracting the <code>yearOfBirth</code> variable from the current year:</p>
 <pre class="r"><code>beatles$age &lt;- 2019 - beatles$yearOfBirth
 beatles</code></pre>
-<pre><code>## [90m# A tibble: 4 x 6[39m
+<pre><code>## # A tibble: 4 × 6
 ##   firstName lastName  instrument yearOfBirth deceased   age
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;lgl&gt;[39m[23m    [3m[90m&lt;dbl&gt;[39m[23m
-## [90m1[39m John      Lennon    guitar            [4m1[24m940 TRUE        79
-## [90m2[39m Paul      McCartney bass              [4m1[24m942 FALSE       77
-## [90m3[39m Ringo     Starr     drums             [4m1[24m940 FALSE       79
-## [90m4[39m George    Harrison  guitar            [4m1[24m943 TRUE        76</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;
+## 1 John      Lennon    guitar            1940 TRUE        79
+## 2 Paul      McCartney bass              1942 FALSE       77
+## 3 Ringo     Starr     drums             1940 FALSE       79
+## 4 George    Harrison  guitar            1943 TRUE        76</code></pre>
 <p>You can also make a new column of all the same value by just providing one value:</p>
 <pre class="r"><code>beatles$hometown &lt;- &#39;Liverpool&#39;
 beatles</code></pre>
-<pre><code>## [90m# A tibble: 4 x 7[39m
+<pre><code>## # A tibble: 4 × 7
 ##   firstName lastName  instrument yearOfBirth deceased   age hometown 
-##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m            [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;lgl&gt;[39m[23m    [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m    
-## [90m1[39m John      Lennon    guitar            [4m1[24m940 TRUE        79 Liverpool
-## [90m2[39m Paul      McCartney bass              [4m1[24m942 FALSE       77 Liverpool
-## [90m3[39m Ringo     Starr     drums             [4m1[24m940 FALSE       79 Liverpool
-## [90m4[39m George    Harrison  guitar            [4m1[24m943 TRUE        76 Liverpool</code></pre>
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt; &lt;chr&gt;    
+## 1 John      Lennon    guitar            1940 TRUE        79 Liverpool
+## 2 Paul      McCartney bass              1942 FALSE       77 Liverpool
+## 3 Ringo     Starr     drums             1940 FALSE       79 Liverpool
+## 4 George    Harrison  guitar            1943 TRUE        76 Liverpool</code></pre>
 </div>
 </div>
 <div id="dealing-with-actual-data" class="section level1">
@@ -885,16 +844,16 @@ beatles</code></pre>
 <pre class="r"><code>install.packages(&quot;ggplot2&quot;)
 library(ggplot2)
 head(msleep) # Preview just the first 6 rows of the data frame</code></pre>
-<pre><code>## [90m# A tibble: 6 x 11[39m
-##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##   [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m              [3m[90m&lt;dbl&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m       [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m
-## [90m1[39m Chee… Acin… carni Carn… lc                  12.1      [31mNA[39m        [31mNA[39m      11.9
-## [90m2[39m Owl … Aotus omni  Prim… [31mNA[39m                  17         1.8      [31mNA[39m       7  
-## [90m3[39m Moun… Aplo… herbi Rode… nt                  14.4       2.4      [31mNA[39m       9.6
-## [90m4[39m Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
-## [90m5[39m Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20  
-## [90m6[39m Thre… Brad… herbi Pilo… [31mNA[39m                  14.4       2.2       0.767   9.6
-## [90m# … with 2 more variables: brainwt [3m[90m&lt;dbl&gt;[90m[23m, bodywt [3m[90m&lt;dbl&gt;[90m[23m[39m</code></pre>
+<pre><code>## # A tibble: 6 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9
+## 2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
+## 3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
+## 4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+## 5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+## 6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
+## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
 <p>If you want to see all of the different datasets that any particular package contains, you can call the <code>data()</code> function after loading a library. For example, here are all the dataset that are contained in the <strong>ggplot2</strong> library:</p>
 <pre class="r"><code>data(package = &quot;ggplot2&quot;)</code></pre>
 <pre><code>Data sets in package &#39;ggplot2&#39;:
@@ -951,21 +910,14 @@ pathToData</code></pre>
 <p>Now load the data:</p>
 <pre class="r"><code>library(readr)
 msleep &lt;- read_csv(here(&#39;data&#39;, &#39;msleep.csv&#39;))</code></pre>
+<pre><code>## Rows: 83 Columns: 11</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (5): name, genus, vore, order, conservation
+## dbl (6): sleep_total, sleep_rem, sleep_cycle, awake, brainwt, bodywt</code></pre>
 <pre><code>## 
-## [36m──[39m [1m[1mColumn specification[1m[22m [36m────────────────────────────────────────────────────────[39m
-## cols(
-##   name = [31mcol_character()[39m,
-##   genus = [31mcol_character()[39m,
-##   vore = [31mcol_character()[39m,
-##   order = [31mcol_character()[39m,
-##   conservation = [31mcol_character()[39m,
-##   sleep_total = [32mcol_double()[39m,
-##   sleep_rem = [32mcol_double()[39m,
-##   sleep_cycle = [32mcol_double()[39m,
-##   awake = [32mcol_double()[39m,
-##   brainwt = [32mcol_double()[39m,
-##   bodywt = [32mcol_double()[39m
-## )</code></pre>
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>R tells us that we’ve successfully read in some data and a quick summary of the data type for each column in the dataset.</p>
 </div>
 </div>
@@ -975,43 +927,43 @@ msleep &lt;- read_csv(here(&#39;data&#39;, &#39;msleep.csv&#39;))</code></pre>
 <pre class="r"><code>View(msleep)</code></pre>
 <p>In addition to viewing the whole dataset with <code>View()</code>, you can quickly view summaries of the data frame with a few convenient functions. For example, you can look at the first 6 rows by using the <code>head()</code> function:</p>
 <pre class="r"><code>head(msleep)</code></pre>
-<pre><code>## [90m# A tibble: 6 x 11[39m
-##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##   [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m              [3m[90m&lt;dbl&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m       [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m
-## [90m1[39m Chee… Acin… carni Carn… lc                  12.1      [31mNA[39m        [31mNA[39m      11.9
-## [90m2[39m Owl … Aotus omni  Prim… [31mNA[39m                  17         1.8      [31mNA[39m       7  
-## [90m3[39m Moun… Aplo… herbi Rode… nt                  14.4       2.4      [31mNA[39m       9.6
-## [90m4[39m Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
-## [90m5[39m Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20  
-## [90m6[39m Thre… Brad… herbi Pilo… [31mNA[39m                  14.4       2.2       0.767   9.6
-## [90m# … with 2 more variables: brainwt [3m[90m&lt;dbl&gt;[90m[23m, bodywt [3m[90m&lt;dbl&gt;[90m[23m[39m</code></pre>
+<pre><code>## # A tibble: 6 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9
+## 2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
+## 3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
+## 4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+## 5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+## 6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
+## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
 <p>Similarly, you can view the <em>last</em> 6 rows by using the <code>tail()</code> function:</p>
 <pre class="r"><code>tail(msleep)</code></pre>
-<pre><code>## [90m# A tibble: 6 x 11[39m
-##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##   [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m              [3m[90m&lt;dbl&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m       [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m
-## [90m1[39m Tenr… Tenr… omni  Afro… [31mNA[39m                  15.6       2.3      [31mNA[39m       8.4
-## [90m2[39m Tree… Tupa… omni  Scan… [31mNA[39m                   8.9       2.6       0.233  15.1
-## [90m3[39m Bott… Turs… carni Ceta… [31mNA[39m                   5.2      [31mNA[39m        [31mNA[39m      18.8
-## [90m4[39m Genet Gene… carni Carn… [31mNA[39m                   6.3       1.3      [31mNA[39m      17.7
-## [90m5[39m Arct… Vulp… carni Carn… [31mNA[39m                  12.5      [31mNA[39m        [31mNA[39m      11.5
-## [90m6[39m Red … Vulp… carni Carn… [31mNA[39m                   9.8       2.4       0.35   14.2
-## [90m# … with 2 more variables: brainwt [3m[90m&lt;dbl&gt;[90m[23m, bodywt [3m[90m&lt;dbl&gt;[90m[23m[39m</code></pre>
+<pre><code>## # A tibble: 6 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Tenrec  Tenr… omni  Afro… &lt;NA&gt;                15.6       2.3      NA       8.4
+## 2 Tree s… Tupa… omni  Scan… &lt;NA&gt;                 8.9       2.6       0.233  15.1
+## 3 Bottle… Turs… carni Ceta… &lt;NA&gt;                 5.2      NA        NA      18.8
+## 4 Genet   Gene… carni Carn… &lt;NA&gt;                 6.3       1.3      NA      17.7
+## 5 Arctic… Vulp… carni Carn… &lt;NA&gt;                12.5      NA        NA      11.5
+## 6 Red fox Vulp… carni Carn… &lt;NA&gt;                 9.8       2.4       0.35   14.2
+## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
 <p>You can also view an overview summary of each column and it’s data types by using the <code>str()</code> or <code>glimpse()</code> functions (these both do the same thing, but I prefer the output of <code>glimpse()</code>):</p>
 <pre class="r"><code>glimpse(msleep)</code></pre>
 <pre><code>## Rows: 83
 ## Columns: 11
-## $ name         [3m[90m&lt;chr&gt;[39m[23m &quot;Cheetah&quot;, &quot;Owl monkey&quot;, &quot;Mountain beaver&quot;, &quot;Greater sho…
-## $ genus        [3m[90m&lt;chr&gt;[39m[23m &quot;Acinonyx&quot;, &quot;Aotus&quot;, &quot;Aplodontia&quot;, &quot;Blarina&quot;, &quot;Bos&quot;, &quot;Br…
-## $ vore         [3m[90m&lt;chr&gt;[39m[23m &quot;carni&quot;, &quot;omni&quot;, &quot;herbi&quot;, &quot;omni&quot;, &quot;herbi&quot;, &quot;herbi&quot;, &quot;car…
-## $ order        [3m[90m&lt;chr&gt;[39m[23m &quot;Carnivora&quot;, &quot;Primates&quot;, &quot;Rodentia&quot;, &quot;Soricomorpha&quot;, &quot;Ar…
-## $ conservation [3m[90m&lt;chr&gt;[39m[23m &quot;lc&quot;, NA, &quot;nt&quot;, &quot;lc&quot;, &quot;domesticated&quot;, NA, &quot;vu&quot;, NA, &quot;dom…
-## $ sleep_total  [3m[90m&lt;dbl&gt;[39m[23m 12.1, 17.0, 14.4, 14.9, 4.0, 14.4, 8.7, 7.0, 10.1, 3.0, …
-## $ sleep_rem    [3m[90m&lt;dbl&gt;[39m[23m NA, 1.8, 2.4, 2.3, 0.7, 2.2, 1.4, NA, 2.9, NA, 0.6, 0.8,…
-## $ sleep_cycle  [3m[90m&lt;dbl&gt;[39m[23m NA, NA, NA, 0.1333333, 0.6666667, 0.7666667, 0.3833333, …
-## $ awake        [3m[90m&lt;dbl&gt;[39m[23m 11.9, 7.0, 9.6, 9.1, 20.0, 9.6, 15.3, 17.0, 13.9, 21.0, …
-## $ brainwt      [3m[90m&lt;dbl&gt;[39m[23m NA, 0.01550, NA, 0.00029, 0.42300, NA, NA, NA, 0.07000, …
-## $ bodywt       [3m[90m&lt;dbl&gt;[39m[23m 50.000, 0.480, 1.350, 0.019, 600.000, 3.850, 20.490, 0.0…</code></pre>
+## $ name         &lt;chr&gt; &quot;Cheetah&quot;, &quot;Owl monkey&quot;, &quot;Mountain beaver&quot;, &quot;Greater shor…
+## $ genus        &lt;chr&gt; &quot;Acinonyx&quot;, &quot;Aotus&quot;, &quot;Aplodontia&quot;, &quot;Blarina&quot;, &quot;Bos&quot;, &quot;Bra…
+## $ vore         &lt;chr&gt; &quot;carni&quot;, &quot;omni&quot;, &quot;herbi&quot;, &quot;omni&quot;, &quot;herbi&quot;, &quot;herbi&quot;, &quot;carn…
+## $ order        &lt;chr&gt; &quot;Carnivora&quot;, &quot;Primates&quot;, &quot;Rodentia&quot;, &quot;Soricomorpha&quot;, &quot;Art…
+## $ conservation &lt;chr&gt; &quot;lc&quot;, NA, &quot;nt&quot;, &quot;lc&quot;, &quot;domesticated&quot;, NA, &quot;vu&quot;, NA, &quot;dome…
+## $ sleep_total  &lt;dbl&gt; 12.1, 17.0, 14.4, 14.9, 4.0, 14.4, 8.7, 7.0, 10.1, 3.0, 5…
+## $ sleep_rem    &lt;dbl&gt; NA, 1.8, 2.4, 2.3, 0.7, 2.2, 1.4, NA, 2.9, NA, 0.6, 0.8, …
+## $ sleep_cycle  &lt;dbl&gt; NA, NA, NA, 0.1333333, 0.6666667, 0.7666667, 0.3833333, N…
+## $ awake        &lt;dbl&gt; 11.9, 7.0, 9.6, 9.1, 20.0, 9.6, 15.3, 17.0, 13.9, 21.0, 1…
+## $ brainwt      &lt;dbl&gt; NA, 0.01550, NA, 0.00029, 0.42300, NA, NA, NA, 0.07000, 0…
+## $ bodywt       &lt;dbl&gt; 50.000, 0.480, 1.350, 0.019, 600.000, 3.850, 20.490, 0.04…</code></pre>
 <p>Finally, you can view summary statistics for each column using the <code>summary()</code> function:</p>
 <pre class="r"><code>summary(msleep)</code></pre>
 <pre><code>##      name              genus               vore              order          
@@ -1154,7 +1106,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1163,6 +1115,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
