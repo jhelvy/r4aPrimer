@@ -861,7 +861,7 @@ speed</code></pre>
 <pre><code>## [1] 15</code></pre>
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”. Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Sun Sep  5 16:50:10 2021&quot;</code></pre>
+<pre><code>## [1] &quot;Mon Sep 20 12:34:50 2021&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="frequently-used-functions" class="section level2">
 <h2><span class="header-section-number">6.1</span> Frequently used functions</h2>
@@ -998,9 +998,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on October 22 in 1707 – In one of the worst maritime disasters in the history of the British Isles, at least 1,400 sailors on four Royal Navy ships were lost in stormy weather off the Isles of Scilly. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on August 30 in 1813 – Creek War: A force of Creeks belonging to the Red Sticks faction killed hundreds of settlers in Fort Mims in Alabama. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that the extinct Polynesian Dog never became feral because of the scarcity of food in the forests of Polynesia? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Hersey and Corey Hawkins combined to score the second most points by a father–son duo in Division I college basketball history, behind only Dell and Stephen Curry? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -1011,7 +1011,7 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on July 9 in 1745 – War of the Austrian Succession: The French victory at the Battle of Melle enabled their subsequent capture of Ghent. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on January 20 in 1942 – The Holocaust: Reinhard Heydrich and other senior Nazi officials met at the Wannsee Conference in the Berlin suburb of Wannsee to discuss implementation of the \&quot;Final Solution to the Jewish question\&quot;. (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
