@@ -434,7 +434,7 @@ You can name the elements in a vector and then use those names to access element
 
 ```{r error=TRUE}
 x <- seq(5)
-names(x) <- c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j')
+names(x) <- c('a', 'b', 'c', 'd', 'e')
 x
 ```
 
