@@ -126,6 +126,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -146,6 +147,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -203,11 +207,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -377,7 +385,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -387,7 +395,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-book"></span>
      
     Lessons
@@ -419,7 +427,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="far fa-bookmark"></span>
      
     References
@@ -474,7 +482,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bars"></span>
      
      
@@ -754,22 +762,23 @@ select(df, state, damage, time_of_day)</code></pre>
 <p>To select all columns <em>except</em> certain ones, put a <code>-</code> sign in front of the variable to exclude it:</p>
 <pre class="r"><code>select(df, -state, -damage, -time_of_day)</code></pre>
 <pre><code>## # A tibble: 56,978 × 18
-##    incident_date       airport_id airport    operator  atype type_eng species_id
-##    &lt;dttm&gt;              &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     
-##  1 2018-12-31 00:00:00 KMIA       MIAMI INTL AMERICAN… B-73… D        UNKBL     
-##  2 2018-12-29 00:00:00 KIND       INDIANAPO… AMERICAN… B-73… D        R         
-##  3 2018-12-29 00:00:00 ZZZZ       UNKNOWN    AMERICAN… UNKN… &lt;NA&gt;     R2004     
-##  4 2018-12-27 00:00:00 ZZZZ       UNKNOWN    AMERICAN… B-73… D        N5205     
-##  5 2018-12-27 00:00:00 ZZZZ       UNKNOWN    AMERICAN… B-73… D        J2139     
-##  6 2018-12-27 00:00:00 KMIA       MIAMI INTL AMERICAN… A-319 D        UNKB      
-##  7 2018-12-27 00:00:00 KMCO       ORLANDO I… AMERICAN… A-321 D        UNKBS     
-##  8 2018-12-26 00:00:00 ZZZZ       UNKNOWN    AMERICAN… B-73… D        ZT001     
-##  9 2018-12-23 00:00:00 ZZZZ       UNKNOWN    AMERICAN… A-321 D        ZT101     
-## 10 2018-12-23 00:00:00 KFLL       FORT LAUD… AMERICAN… B-73… D        I1301     
-## # … with 56,968 more rows, and 11 more variables: species &lt;chr&gt;,
-## #   num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;, time &lt;dbl&gt;,
-## #   height &lt;dbl&gt;, speed &lt;dbl&gt;, phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;,
-## #   cost_repairs_infl_adj &lt;dbl&gt;</code></pre>
+##    incident_date       airport_id airport  opera…¹ atype type_…² speci…³ species
+##    &lt;dttm&gt;              &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1 2018-12-31 00:00:00 KMIA       MIAMI I… AMERIC… B-73… D       UNKBL   Unknow…
+##  2 2018-12-29 00:00:00 KIND       INDIANA… AMERIC… B-73… D       R       Owls   
+##  3 2018-12-29 00:00:00 ZZZZ       UNKNOWN  AMERIC… UNKN… &lt;NA&gt;    R2004   Short-…
+##  4 2018-12-27 00:00:00 ZZZZ       UNKNOWN  AMERIC… B-73… D       N5205   Southe…
+##  5 2018-12-27 00:00:00 ZZZZ       UNKNOWN  AMERIC… B-73… D       J2139   Lesser…
+##  6 2018-12-27 00:00:00 KMIA       MIAMI I… AMERIC… A-319 D       UNKB    Unknow…
+##  7 2018-12-27 00:00:00 KMCO       ORLANDO… AMERIC… A-321 D       UNKBS   Unknow…
+##  8 2018-12-26 00:00:00 ZZZZ       UNKNOWN  AMERIC… B-73… D       ZT001   Easter…
+##  9 2018-12-23 00:00:00 ZZZZ       UNKNOWN  AMERIC… A-321 D       ZT101   Red-wi…
+## 10 2018-12-23 00:00:00 KFLL       FORT LA… AMERIC… B-73… D       I1301   Cattle…
+## # … with 56,968 more rows, 10 more variables: num_engs &lt;dbl&gt;,
+## #   incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;,
+## #   speed &lt;dbl&gt;, phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;,
+## #   cost_repairs_infl_adj &lt;dbl&gt;, and abbreviated variable names ¹​operator,
+## #   ²​type_eng, ³​species_id</code></pre>
 <p>Some additional options to select columns based on a specific criteria include:</p>
 <ol style="list-style-type: decimal">
 <li><code>ends_with()</code> = Select columns that end with a character string</li>
@@ -784,42 +793,43 @@ select(df, state, damage, time_of_day)</code></pre>
 <p>Filter the rows for wildlife impacts that occurred in DC:</p>
 <pre class="r"><code>filter(df, state == &#39;DC&#39;)</code></pre>
 <pre><code>## # A tibble: 1,228 × 21
-##    incident_date       state airport_id airport        operator   atype type_eng
-##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   
-##  1 2018-10-23 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … B-73… D       
-##  2 2018-10-17 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … B-73… D       
-##  3 2018-10-16 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … B-73… D       
-##  4 2018-10-12 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … B-73… D       
-##  5 2018-09-04 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … A-319 D       
-##  6 2018-09-01 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … A-321 D       
-##  7 2018-08-31 00:00:00 DC    KIAD       WASHINGTON DU… AMERICAN … A-319 D       
-##  8 2018-08-23 00:00:00 DC    KDCA       RONALD REAGAN… AMERICAN … EMB-… D       
-##  9 2018-08-13 00:00:00 DC    KIAD       WASHINGTON DU… AMERICAN … MD-82 D       
-## 10 2018-08-01 00:00:00 DC    KIAD       WASHINGTON DU… AMERICAN … CRJ7… D       
-## # … with 1,218 more rows, and 14 more variables: species_id &lt;chr&gt;,
-## #   species &lt;chr&gt;, damage &lt;chr&gt;, num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;,
-## #   incident_year &lt;dbl&gt;, time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;,
-## #   speed &lt;dbl&gt;, phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;,
-## #   cost_repairs_infl_adj &lt;dbl&gt;</code></pre>
+##    incident_date       state airport_id airport    opera…¹ atype type_…² speci…³
+##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  
+##  1 2018-10-23 00:00:00 DC    KDCA       RONALD RE… AMERIC… B-73… D       UNKBS  
+##  2 2018-10-17 00:00:00 DC    KDCA       RONALD RE… AMERIC… B-73… D       UNKBS  
+##  3 2018-10-16 00:00:00 DC    KDCA       RONALD RE… AMERIC… B-73… D       YL001  
+##  4 2018-10-12 00:00:00 DC    KDCA       RONALD RE… AMERIC… B-73… D       UNKBS  
+##  5 2018-09-04 00:00:00 DC    KDCA       RONALD RE… AMERIC… A-319 D       UNKB   
+##  6 2018-09-01 00:00:00 DC    KDCA       RONALD RE… AMERIC… A-321 D       UNKBS  
+##  7 2018-08-31 00:00:00 DC    KIAD       WASHINGTO… AMERIC… A-319 D       UNKB   
+##  8 2018-08-23 00:00:00 DC    KDCA       RONALD RE… AMERIC… EMB-… D       UNKBS  
+##  9 2018-08-13 00:00:00 DC    KIAD       WASHINGTO… AMERIC… MD-82 D       UNKBS  
+## 10 2018-08-01 00:00:00 DC    KIAD       WASHINGTO… AMERIC… CRJ7… D       YI005  
+## # … with 1,218 more rows, 13 more variables: species &lt;chr&gt;, damage &lt;chr&gt;,
+## #   num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;,
+## #   time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;, speed &lt;dbl&gt;,
+## #   phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;, cost_repairs_infl_adj &lt;dbl&gt;,
+## #   and abbreviated variable names ¹​operator, ²​type_eng, ³​species_id</code></pre>
 <p>Filter the rows for wildlife impacts that cost more than $1 million in damages:</p>
 <pre class="r"><code>filter(df, cost_repairs_infl_adj &gt; 10^6)</code></pre>
 <pre><code>## # A tibble: 41 × 21
-##    incident_date       state airport_id airport        operator   atype type_eng
-##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   
-##  1 2015-05-26 00:00:00 N/A   SVMI       SIMON BOLIVAR… AMERICAN … B-73… D       
-##  2 2015-04-25 00:00:00 FL    KJAX       JACKSONVILLE … AMERICAN … A-319 D       
-##  3 2015-04-02 00:00:00 MA    KBOS       GENERAL EDWAR… AMERICAN … B-73… D       
-##  4 2001-04-02 00:00:00 N/A   LFPG       CHARLES DE GA… AMERICAN … B-76… D       
-##  5 2015-10-08 00:00:00 WA    KSEA       SEATTLE-TACOM… DELTA AIR… A-330 D       
-##  6 2015-09-23 00:00:00 UT    KSLC       SALT LAKE CIT… DELTA AIR… B-73… D       
-##  7 2008-10-25 00:00:00 UT    KSLC       SALT LAKE CIT… DELTA AIR… DC-9… D       
-##  8 2007-12-02 00:00:00 N/A   GOOY       DAKAY-YOFF-LE… DELTA AIR… B-76… D       
-##  9 2007-11-22 00:00:00 N/A   LFMN       NICE COTE D&#39;A… DELTA AIR… B-76… D       
-## 10 2011-07-30 00:00:00 CA    KBUR       BOB HOPE ARPT  SOUTHWEST… B-73… D       
-## # … with 31 more rows, and 14 more variables: species_id &lt;chr&gt;, species &lt;chr&gt;,
-## #   damage &lt;chr&gt;, num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;,
+##    incident_date       state airport_id airport    opera…¹ atype type_…² speci…³
+##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  
+##  1 2015-05-26 00:00:00 N/A   SVMI       SIMON BOL… AMERIC… B-73… D       K1     
+##  2 2015-04-25 00:00:00 FL    KJAX       JACKSONVI… AMERIC… A-319 D       J2204  
+##  3 2015-04-02 00:00:00 MA    KBOS       GENERAL E… AMERIC… B-73… D       UNKBL  
+##  4 2001-04-02 00:00:00 N/A   LFPG       CHARLES D… AMERIC… B-76… D       J2131  
+##  5 2015-10-08 00:00:00 WA    KSEA       SEATTLE-T… DELTA … A-330 D       K3302  
+##  6 2015-09-23 00:00:00 UT    KSLC       SALT LAKE… DELTA … B-73… D       I6107  
+##  7 2008-10-25 00:00:00 UT    KSLC       SALT LAKE… DELTA … DC-9… D       K3312  
+##  8 2007-12-02 00:00:00 N/A   GOOY       DAKAY-YOF… DELTA … B-76… D       UNKBL  
+##  9 2007-11-22 00:00:00 N/A   LFMN       NICE COTE… DELTA … B-76… D       NE138  
+## 10 2011-07-30 00:00:00 CA    KBUR       BOB HOPE … SOUTHW… B-73… D       O2111  
+## # … with 31 more rows, 13 more variables: species &lt;chr&gt;, damage &lt;chr&gt;,
+## #   num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;,
 ## #   time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;, speed &lt;dbl&gt;,
-## #   phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;, cost_repairs_infl_adj &lt;dbl&gt;</code></pre>
+## #   phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;, cost_repairs_infl_adj &lt;dbl&gt;,
+## #   and abbreviated variable names ¹​operator, ²​type_eng, ³​species_id</code></pre>
 </div>
 <div id="sequence-operations-with-pipes" class="section level2">
 <h2><span class="header-section-number">2.4</span> Sequence operations with pipes (<code>%&gt;%</code>)</h2>
@@ -888,45 +898,45 @@ head(dc_impacts)</code></pre>
 df %&gt;%
     arrange(cost_repairs_infl_adj)</code></pre>
 <pre><code>## # A tibble: 56,978 × 21
-##    incident_date       state airport_id airport        operator   atype type_eng
-##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   
-##  1 2013-09-05 00:00:00 MI    KFNT       BISHOP INTL A… SOUTHWEST… B-73… D       
-##  2 2011-04-17 00:00:00 TX    KDFW       DALLAS/FORT W… AMERICAN … MD-80 D       
-##  3 2018-07-10 00:00:00 NM    KABQ       ALBUQUERQUE I… SOUTHWEST… B-73… D       
-##  4 2017-10-31 00:00:00 PA    KPIT       PITTSBURGH IN… AMERICAN … B-73… D       
-##  5 2014-01-17 00:00:00 UT    KSLC       SALT LAKE CIT… SOUTHWEST… B-73… D       
-##  6 2006-04-28 00:00:00 TX    KIAH       GEORGE BUSH I… UNITED AI… B-73… D       
-##  7 2005-04-13 00:00:00 N/A   ZZZZ       UNKNOWN        UNITED AI… B-76… D       
-##  8 2004-06-17 00:00:00 N/A   ZZZZ       UNKNOWN        UNITED AI… B-73… D       
-##  9 2004-04-22 00:00:00 N/A   ZZZZ       UNKNOWN        UNITED AI… B-76… D       
-## 10 2018-10-20 00:00:00 TX    KDAL       DALLAS LOVE F… SOUTHWEST… B-73… D       
-## # … with 56,968 more rows, and 14 more variables: species_id &lt;chr&gt;,
-## #   species &lt;chr&gt;, damage &lt;chr&gt;, num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;,
-## #   incident_year &lt;dbl&gt;, time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;,
-## #   speed &lt;dbl&gt;, phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;,
-## #   cost_repairs_infl_adj &lt;dbl&gt;</code></pre>
+##    incident_date       state airport_id airport    opera…¹ atype type_…² speci…³
+##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  
+##  1 2013-09-05 00:00:00 MI    KFNT       BISHOP IN… SOUTHW… B-73… D       UNKBS  
+##  2 2011-04-17 00:00:00 TX    KDFW       DALLAS/FO… AMERIC… MD-80 D       UNKBS  
+##  3 2018-07-10 00:00:00 NM    KABQ       ALBUQUERQ… SOUTHW… B-73… D       UNKBL  
+##  4 2017-10-31 00:00:00 PA    KPIT       PITTSBURG… AMERIC… B-73… D       UNKBS  
+##  5 2014-01-17 00:00:00 UT    KSLC       SALT LAKE… SOUTHW… B-73… D       J21    
+##  6 2006-04-28 00:00:00 TX    KIAH       GEORGE BU… UNITED… B-73… D       UNKBM  
+##  7 2005-04-13 00:00:00 N/A   ZZZZ       UNKNOWN    UNITED… B-76… D       UNKBM  
+##  8 2004-06-17 00:00:00 N/A   ZZZZ       UNKNOWN    UNITED… B-73… D       UNKBM  
+##  9 2004-04-22 00:00:00 N/A   ZZZZ       UNKNOWN    UNITED… B-76… D       UNKBM  
+## 10 2018-10-20 00:00:00 TX    KDAL       DALLAS LO… SOUTHW… B-73… D       UNKBS  
+## # … with 56,968 more rows, 13 more variables: species &lt;chr&gt;, damage &lt;chr&gt;,
+## #   num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;,
+## #   time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;, speed &lt;dbl&gt;,
+## #   phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;, cost_repairs_infl_adj &lt;dbl&gt;,
+## #   and abbreviated variable names ¹​operator, ²​type_eng, ³​species_id</code></pre>
 <p>To sort in descending order, add the <code>desc()</code> function inside the <code>arrange()</code> function. For example, here are the <em>most</em> expensive accidents:</p>
 <pre class="r"><code># Arrange by most expensive accident
 df %&gt;%
     arrange(desc(cost_repairs_infl_adj))</code></pre>
 <pre><code>## # A tibble: 56,978 × 21
-##    incident_date       state airport_id airport       operator    atype type_eng
-##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   
-##  1 2009-02-03 00:00:00 CO    KDEN       DENVER INTL … UNITED AIR… B-75… D       
-##  2 2007-11-22 00:00:00 N/A   LFMN       NICE COTE D&#39;… DELTA AIR … B-76… D       
-##  3 2011-09-26 00:00:00 CO    KDEN       DENVER INTL … UNITED AIR… B-75… D       
-##  4 2017-07-11 00:00:00 CO    KDEN       DENVER INTL … UNITED AIR… B-73… D       
-##  5 2008-10-25 00:00:00 UT    KSLC       SALT LAKE CI… DELTA AIR … DC-9… D       
-##  6 2011-07-30 00:00:00 CA    KBUR       BOB HOPE ARPT SOUTHWEST … B-73… D       
-##  7 2001-12-06 00:00:00 MI    KDTW       DETROIT METR… SOUTHWEST … B-73… D       
-##  8 2003-04-15 00:00:00 CA    KSFO       SAN FRANCISC… UNITED AIR… B-73… D       
-##  9 2005-09-06 00:00:00 CO    KDEN       DENVER INTL … UNITED AIR… B-73… D       
-## 10 2005-04-20 00:00:00 N/A   ZZZZ       UNKNOWN       UNITED AIR… B-77… D       
-## # … with 56,968 more rows, and 14 more variables: species_id &lt;chr&gt;,
-## #   species &lt;chr&gt;, damage &lt;chr&gt;, num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;,
-## #   incident_year &lt;dbl&gt;, time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;,
-## #   speed &lt;dbl&gt;, phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;,
-## #   cost_repairs_infl_adj &lt;dbl&gt;</code></pre>
+##    incident_date       state airport_id airport    opera…¹ atype type_…² speci…³
+##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  
+##  1 2009-02-03 00:00:00 CO    KDEN       DENVER IN… UNITED… B-75… D       K3201  
+##  2 2007-11-22 00:00:00 N/A   LFMN       NICE COTE… DELTA … B-76… D       NE138  
+##  3 2011-09-26 00:00:00 CO    KDEN       DENVER IN… UNITED… B-75… D       K3302  
+##  4 2017-07-11 00:00:00 CO    KDEN       DENVER IN… UNITED… B-73… D       K3302  
+##  5 2008-10-25 00:00:00 UT    KSLC       SALT LAKE… DELTA … DC-9… D       K3312  
+##  6 2011-07-30 00:00:00 CA    KBUR       BOB HOPE … SOUTHW… B-73… D       O2111  
+##  7 2001-12-06 00:00:00 MI    KDTW       DETROIT M… SOUTHW… B-73… D       NE1    
+##  8 2003-04-15 00:00:00 CA    KSFO       SAN FRANC… UNITED… B-73… D       N5111  
+##  9 2005-09-06 00:00:00 CO    KDEN       DENVER IN… UNITED… B-73… D       UNKBS  
+## 10 2005-04-20 00:00:00 N/A   ZZZZ       UNKNOWN    UNITED… B-77… D       Z6004  
+## # … with 56,968 more rows, 13 more variables: species &lt;chr&gt;, damage &lt;chr&gt;,
+## #   num_engs &lt;dbl&gt;, incident_month &lt;dbl&gt;, incident_year &lt;dbl&gt;,
+## #   time_of_day &lt;chr&gt;, time &lt;dbl&gt;, height &lt;dbl&gt;, speed &lt;dbl&gt;,
+## #   phase_of_flt &lt;chr&gt;, sky &lt;chr&gt;, precip &lt;chr&gt;, cost_repairs_infl_adj &lt;dbl&gt;,
+## #   and abbreviated variable names ¹​operator, ²​type_eng, ³​species_id</code></pre>
 </div>
 <div id="create-new-variables-with-mutate" class="section level2">
 <h2><span class="header-section-number">2.6</span> Create new variables with <code>mutate()</code></h2>
@@ -1052,7 +1062,8 @@ df %&gt;%
     filter(!is.na(height)) %&gt;%
     group_by(state, operator) %&gt;%
     summarise(mean_height = mean(height))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 213 × 3
 ## # Groups:   state [59]
 ##    state operator           mean_height
@@ -1093,7 +1104,8 @@ df %&gt;%
     summarise(mean_height = mean(height),
               min_height = min(height),
               max_height = max(height))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 213 × 5
 ## # Groups:   state [59]
 ##    state operator           mean_height min_height max_height
@@ -1176,7 +1188,8 @@ df %&gt;%
     summarise(mean_height = mean(height),
               min_height = min(height),
               max_height = max(height))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <p>Save the the new <code>heightSummary</code> data frame as a CSV file in your “data_output” folder:</p>
 <pre class="r"><code>write_csv(heightSummary, path = here(&#39;data_output&#39;, &#39;heightSummary.csv&#39;)</code></pre>
 <hr />

@@ -126,6 +126,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -146,6 +147,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -203,11 +207,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -377,7 +385,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -387,7 +395,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-book"></span>
      
     Lessons
@@ -419,7 +427,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="far fa-bookmark"></span>
      
     References
@@ -474,7 +482,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bars"></span>
      
      
@@ -845,15 +853,16 @@ beatles</code></pre>
 library(ggplot2)
 head(msleep) # Preview just the first 6 rows of the data frame</code></pre>
 <pre><code>## # A tibble: 6 × 11
-##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9
-## 2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
-## 3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
-## 4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
-## 5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  
-## 6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
-## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+##   name  genus vore  order conse…¹ sleep…² sleep…³ sleep…⁴ awake  brainwt  bodywt
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Chee… Acin… carni Carn… lc         12.1    NA    NA      11.9 NA        50    
+## 2 Owl … Aotus omni  Prim… &lt;NA&gt;       17       1.8  NA       7    0.0155    0.48 
+## 3 Moun… Aplo… herbi Rode… nt         14.4     2.4  NA       9.6 NA         1.35 
+## 4 Grea… Blar… omni  Sori… lc         14.9     2.3   0.133   9.1  0.00029   0.019
+## 5 Cow   Bos   herbi Arti… domest…     4       0.7   0.667  20    0.423   600    
+## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;       14.4     2.2   0.767   9.6 NA         3.85 
+## # … with abbreviated variable names ¹​conservation, ²​sleep_total, ³​sleep_rem,
+## #   ⁴​sleep_cycle</code></pre>
 <p>If you want to see all of the different datasets that any particular package contains, you can call the <code>data()</code> function after loading a library. For example, here are all the dataset that are contained in the <strong>ggplot2</strong> library:</p>
 <pre class="r"><code>data(package = &quot;ggplot2&quot;)</code></pre>
 <pre><code>Data sets in package &#39;ggplot2&#39;:
@@ -910,12 +919,12 @@ pathToData</code></pre>
 <p>Now load the data:</p>
 <pre class="r"><code>library(readr)
 msleep &lt;- read_csv(here(&#39;data&#39;, &#39;msleep.csv&#39;))</code></pre>
-<pre><code>## Rows: 83 Columns: 11</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+<pre><code>## Rows: 83 Columns: 11
+## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (5): name, genus, vore, order, conservation
-## dbl (6): sleep_total, sleep_rem, sleep_cycle, awake, brainwt, bodywt</code></pre>
-<pre><code>## 
+## dbl (6): sleep_total, sleep_rem, sleep_cycle, awake, brainwt, bodywt
+## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>R tells us that we’ve successfully read in some data and a quick summary of the data type for each column in the dataset.</p>
@@ -928,27 +937,29 @@ msleep &lt;- read_csv(here(&#39;data&#39;, &#39;msleep.csv&#39;))</code></pre>
 <p>In addition to viewing the whole dataset with <code>View()</code>, you can quickly view summaries of the data frame with a few convenient functions. For example, you can look at the first 6 rows by using the <code>head()</code> function:</p>
 <pre class="r"><code>head(msleep)</code></pre>
 <pre><code>## # A tibble: 6 × 11
-##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9
-## 2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
-## 3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
-## 4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
-## 5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  
-## 6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
-## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+##   name  genus vore  order conse…¹ sleep…² sleep…³ sleep…⁴ awake  brainwt  bodywt
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Chee… Acin… carni Carn… lc         12.1    NA    NA      11.9 NA        50    
+## 2 Owl … Aotus omni  Prim… &lt;NA&gt;       17       1.8  NA       7    0.0155    0.48 
+## 3 Moun… Aplo… herbi Rode… nt         14.4     2.4  NA       9.6 NA         1.35 
+## 4 Grea… Blar… omni  Sori… lc         14.9     2.3   0.133   9.1  0.00029   0.019
+## 5 Cow   Bos   herbi Arti… domest…     4       0.7   0.667  20    0.423   600    
+## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;       14.4     2.2   0.767   9.6 NA         3.85 
+## # … with abbreviated variable names ¹​conservation, ²​sleep_total, ³​sleep_rem,
+## #   ⁴​sleep_cycle</code></pre>
 <p>Similarly, you can view the <em>last</em> 6 rows by using the <code>tail()</code> function:</p>
 <pre class="r"><code>tail(msleep)</code></pre>
 <pre><code>## # A tibble: 6 × 11
-##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Tenrec  Tenr… omni  Afro… &lt;NA&gt;                15.6       2.3      NA       8.4
-## 2 Tree s… Tupa… omni  Scan… &lt;NA&gt;                 8.9       2.6       0.233  15.1
-## 3 Bottle… Turs… carni Ceta… &lt;NA&gt;                 5.2      NA        NA      18.8
-## 4 Genet   Gene… carni Carn… &lt;NA&gt;                 6.3       1.3      NA      17.7
-## 5 Arctic… Vulp… carni Carn… &lt;NA&gt;                12.5      NA        NA      11.5
-## 6 Red fox Vulp… carni Carn… &lt;NA&gt;                 9.8       2.4       0.35   14.2
-## # … with 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+##   name   genus vore  order conse…¹ sleep…² sleep…³ sleep…⁴ awake brainwt  bodywt
+##   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Tenrec Tenr… omni  Afro… &lt;NA&gt;       15.6     2.3  NA       8.4  0.0026   0.9  
+## 2 Tree … Tupa… omni  Scan… &lt;NA&gt;        8.9     2.6   0.233  15.1  0.0025   0.104
+## 3 Bottl… Turs… carni Ceta… &lt;NA&gt;        5.2    NA    NA      18.8 NA      173.   
+## 4 Genet  Gene… carni Carn… &lt;NA&gt;        6.3     1.3  NA      17.7  0.0175   2    
+## 5 Arcti… Vulp… carni Carn… &lt;NA&gt;       12.5    NA    NA      11.5  0.0445   3.38 
+## 6 Red f… Vulp… carni Carn… &lt;NA&gt;        9.8     2.4   0.35   14.2  0.0504   4.23 
+## # … with abbreviated variable names ¹​conservation, ²​sleep_total, ³​sleep_rem,
+## #   ⁴​sleep_cycle</code></pre>
 <p>You can also view an overview summary of each column and it’s data types by using the <code>str()</code> or <code>glimpse()</code> functions (these both do the same thing, but I prefer the output of <code>glimpse()</code>):</p>
 <pre class="r"><code>glimpse(msleep)</code></pre>
 <pre><code>## Rows: 83
