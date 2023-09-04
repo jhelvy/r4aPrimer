@@ -19,8 +19,7 @@ source("knitr_setup.R")
 >
 > ### Suggested Readings
 >
-> * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/), by Yihui Xie, J. J. Allaire, and Garrett Grolemund
-> * [RMarkdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+> * [Get Started with Quarto](https://quarto.org/docs/blog/posts/2023-05-15-get-started/)
 
 ---
 
@@ -34,28 +33,23 @@ The goal is to integrate data analysis (executable code) with textual documentat
 
 This leads to the idea of having a **reproducible workflow** - from raw data to published results.
 
-> Enter RMarkdown
+> Enter Quarto
 
-[RMarkdown](https://rmarkdown.rstudio.com/) integrates a **documentantion** language ([markdown](https://en.wikipedia.org/wiki/Markdown)) with a **programming** language (`R`). This enables authors to craft interactive documents of data, analysis, and results that are easily shareable, particularly through the web.
+[Quarto](https://quarto.org/) integrates a **documentantion** language ([markdown](https://en.wikipedia.org/wiki/Markdown)) with a **programming** language (`R`^[Actually Quarto supports 4 programming languages: R, Python, Observable, and Julia.]). This enables authors to craft interactive documents of data, analysis, and results that are easily shareable, particularly through the web.
 
----
-
-# Rmarkdown overview
-
-Watch this 1-min video to get a quick sense of what RMarkdown is:
-
-<iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-
-...and watch this 1.5 min video to witness the horrors of not using a reproducible workflow:
-
-<iframe width="640" height="400" src="https://www.youtube.com/embed/s3JldKoA0zw" frameborder="0" allowfullscreen></iframe>
+> Note: You may hear about "RMarkdown" when using Quarto. That's because RMarkdown was the predecessor to Quarto. Whereas RMarkdown was designed for R, Quarto took the best parts of it, improved it, and made it more accessible by also supporting Python, Observable and Julia.
 
 ---
 
-# Elements of RMarkdown
+# Quarto overview
 
-<img src="images/horst_monsters_rmarkdown.png" width=500> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+Watch this ~20-min video to get a quick introduction to Quarto. Trust me - there's a LOT you can do with Quarto, but you can get most of what you need in just 20 minutes!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_f3latmOhew?si=b5Bk35ALLHw-Sp_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
+# Elements of Quarto
 
 ## Markdown
 
@@ -71,38 +65,31 @@ Markdown is a simple, plain text language for converting raw text to HTML for th
 
 Code "chunks" are defined through special notation and are executed in sequence throughout the document (just like an `.R` script). You can mix code directly in with markdown (e.g. "Here's some simple math in R: `2 + 2` produces `r 2 + 2`") or in separate chunks before or after markdown text. This enables you to write English language text in markdown to explain something, and then immediately follow it up with code to illustrate or demonstrate it.
 
-RMarkdown currently supports a number of different [Language Engines](https://rmarkdown.rstudio.com/authoring_knitr_engines.html) through the `knitr` package, including:
-
-- **R** (default)
-- Python
-- SQL
-- Bash
-- Rcpp
-- Stan
-- JavaScript
-- CSS
-
 ## Outputs
 
-The `knitr` package enables you to "knit" together the markdown text and R code into a variety of output formats. The default format is an html document for reading through an internet browser and sharing results across the web. Check out the [RMarkdown Gallery](https://rmarkdown.rstudio.com/gallery.html) for some examples. Other formats include:
+Quarto enables you to "render" the markdown text and R code into a variety of output formats. The default format is an html document for reading through an internet browser and sharing results across the web. Check out the [Quarto Gallery](https://quarto.org/docs/gallery/) for some examples. Other formats include:
 
-![](images/RMarkdownOutputFormats.png){ width=400 }
+- Articles & Reports
+- Presentations
+- Interactive Docs
+- Websites
+- Books
 
 ## Publish to the web
 
-Once you've written up your RMarkdown document, you can publish it to the web for free using RPubs: http://rpubs.com/
+Once you've written up your Quarto document, you can publish it to the web for free using RPubs: http://rpubs.com/
 
-Watch this quick demo of how to publish your markdown file to the web using RPubs:
+Watch this quick demo of how to publish your Quarto file to the web using RPubs (Note that this video is a demo of RMarkdown, but it's essentially the same process with Quarto):
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GJ36zamYVLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
-# Elements of a `.Rmd` document
+# Elements of a `.qmd` document
 
 ## The YAML header
 
-The yaml header contains metadata about the document - most importantly the output. Different settings can be set within different outputs. Here we'll be focusing on on the [`html_document` output](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents).
+The YAML header contains metadata about the document - most importantly the output format. Different settings can be set within different format. Here we'll be focusing on on the [`html` format](https://quarto.org/docs/reference/formats/html.html).
 
 It is contained between these separators at the top of the file.
 
@@ -112,9 +99,13 @@ It is contained between these separators at the top of the file.
 ---
 ```
 
-Markdown was originally designed for HTML output, so it may not be surprising that the HTML format has the richest features among all output formats. To create an HTML document from R Markdown, you specify the `html_document` output format in the YAML metadata of your document:
+Markdown was originally designed for HTML output, so it may not be surprising that the HTML format has the richest features among all output formats. To create an HTML document from R Markdown, you specify `format: html` in the YAML metadata of your document:
 
-![](images/yaml_description.png){ width=600 }
+```{r, eval=FALSE}
+---
+format: htmls
+---
+```
 
 At a bare minimum, your yaml should include a title and output format. Here I've also included my name as the author, and the date:
 
@@ -122,8 +113,7 @@ At a bare minimum, your yaml should include a title and output format. Here I've
 ---
 title: "This is a demo"
 author: "John Helveston"
-date: "11/18/2019"
-output: html_document
+format: html
 ---
 ```
 
@@ -133,7 +123,7 @@ This will produce an html page that looks like this:
 
 ## Markdown basics
 
-The text in an R Markdown document is written with the [Markdown syntax](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html).
+The text in an Quarto document is written with the [Markdown syntax](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html).
 
 > Check out this [**60-second** markdown reference guide](https://commonmark.org/help/) to get the basics
 
@@ -232,9 +222,9 @@ Wow - that's pretty cool!
 
 ## R Code chunks
 
-Code chunks are blocks of R code that are executed when you compile the `.Rmd` document. The output of the code is inserted into the RMarkdown document. Chunks can be used as a means to render R output into documents or to simply display code for illustration (e.g. with option `eval=FALSE`).
+Code chunks are blocks of R code that are executed when you compile the `.qmd` document. The output of the code is inserted into the Quarto document. Chunks can be used as a means to render R output into documents or to simply display code for illustration (e.g. with option `eval=FALSE`).
 
-Here's an example of a `.Rmd` file with a code chunk on the left and the rendered output on the right:
+Here's an example of a `.qmd` file with a code chunk on the left and the rendered output on the right:
 
 ![](images/markdownChunk.png){ width=700 }
 
@@ -315,18 +305,19 @@ You can adjust the dimensions of plots using `fig.height` & `fig.width` inside t
 
 # Tips
 
-## Knitting to other output formats
+## Rendering to other output formats
 
-As previously mentioned, the default output format for RMarkdown documents is html, but you can change this by adjusting the YAML `output`. For example, if I wanted to create a pdf document instead, I could use `pdf_document` in the YAML:
+As previously mentioned, the default output format for Quarto documents is html, but you can change this by adjusting the YAML `format`. For example, if I wanted to create a pdf document instead, I could use `format: pdf` in the YAML:
 
 ```{r, eval=FALSE}
 ---
 title: "This is a demo"
 author: "John Helveston"
-date: "11/18/2019"
-output: pdf_document
+format: pdf
 ---
 ```
+
+> If this doesn't work for you, chances are you may need LaTeX also installed. You can install a small version of LaTeX with this command in R: `tinytex::install_tinytex()`
 
 ## Convert a data frame to a table
 
@@ -345,7 +336,7 @@ kable(beatles)
 
 ## Inserting a Python code chunk
 
-One of the most impressive things about RMarkdown code chunks is that the code itself doesn't have to be R code. For example, if you want to use Python code instead, just change `{r}` to `{python}` in the code chunk:
+One of the most impressive things about Quarto code chunks is that the code itself doesn't have to be R code. For example, if you want to use Python code instead, just change `{r}` to `{python}` in the code chunk:
 
     `r ''````{python}
     'In Python, you can concatenate strings' + ' like this!'
@@ -354,22 +345,6 @@ The above chunk renders as:
 ```
 ## 'In Python, you can concatenate strings like this!'
 ```
-
----
-
-# Additional Resources
-
-- [R Markdown: The Definitive guide](https://bookdown.org/yihui/rmarkdown/)
-
-- [Rmarkdown documentation](http://rmarkdown.rstudio.com/)
-
-- [Rmarkdown `html_document` format documentation](https://rmarkdown.rstudio.com/html_document_format.html)
-
-- [Rstudio Rmarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-
-- [Reproducible Research](https://www.coursera.org/learn/reproducible-research) coursera MOOC
-
-- [Producing html documents from `.R` scripts using `knitr::spin`](http://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/)
 
 ---
 
