@@ -13,6 +13,7 @@
 
 <title>Example Analyses</title>
 
+<script src="site_libs/header-attrs-2.24.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -31,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -241,8 +242,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -250,16 +251,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -447,19 +441,63 @@ $(document).ready(function () {
 <p>After completing these lessons, you should be able to:</p>
 <ul>
 <li>Use RStudio to write basic R commands.</li>
-<li>Know the distinctions between different R operators and data types, including numeric, string, and logical data.</li>
-<li>Use <strong>tidyverse</strong> functions to wrangle and manipulate data in R.</li>
+<li>Know the distinctions between different R operators and data types,
+including numeric, string, and logical data.</li>
+<li>Use <strong>tidyverse</strong> functions to wrangle and manipulate
+data in R.</li>
 <li>Use the <strong>ggplot2</strong> library to create plots in R.</li>
 <li>Reproducibly import, export, wrangle, and visualize data.</li>
 </ul>
-<p>It can be very helpful to see these skills in practice, so here are a few excellent examples of using the Tidyverse tools to wrangle, visualize, and gain insights about data:</p>
+<p>It can be very helpful to see these skills in practice, so here are a
+few excellent examples of using the Tidyverse tools to wrangle,
+visualize, and gain insights about data:</p>
 <ul>
-<li><a href="https://www.datacamp.com/community/tutorials/tidyverse-tutorial-r">Survivors of the Titantic</a>: A great overview of getting started with the tidyverse.</li>
-<li><a href="https://radmuzom.com/2019/05/18/fun-with-statistics-is-usain-bolt-really-the-fastest-man-on-earth/">Is Usain Bolt really the fastest man on earth?</a>, by <a href="https://radmuzom.com/about/">Anindya Mozumdar</a>. This analysis uses some statistical modeling (which won’t cover), but the use of visualizations alone are effective for addressing the research questions posed.</li>
-<li><a href="https://www.kaggle.com/jonathanbouchet/f1-data-analysis">F1 racing data analysis</a>, by Jonathan Bouchet. This is an extensive exploratory data analysis of a variety of data on races, drivers, and constructors across the history of <a href="https://www.formula1.com/">Formula 1</a> racing. This would probably be overkill for a course project, but sections of it (e.g. section 3 on the races, or sections 4 and 5 together on the drivers and constructors) would make a nice project. It involves mutliple data sets, some not-so-simple data cleaning, and a wide variety of nice visualizations.</li>
-<li><a href="http://myweb.fsu.edu/jelsner/stronger-hur.html">Increasing Intensity of Strong Atlantic Hurricanes</a>, by James B. Elsner. This is a short analysis with the goal of validating the predictions of <a href="https://www.nature.com/articles/nature07234">this study</a> published in Nature in 2008, which predicted that Atlantic tropical cyclones would continue to get stronger on average over time. While this analysis is too short to be considered adequate for a final project, it is still a good example of good data source documentation and one effective visualization. An expanded inquiry into the questions addressed here would make a good course project.</li>
-<li><a href="https://owenshen24.github.io/charting-death/">Death: Reality vs Reported</a>, by Owen Shen: This is an interesting original analysis in which the author collected the data himself. The analysis compares whether the proportion of actual causes of death is consistent with the proportion of death causes that the media reports. This analysis also uses some interactive graphics so that the reader can view different versions of the same plot, such as scrolling through the plot over time.</li>
-<li><a href="https://towardsdatascience.com/are-first-babies-more-likely-to-be-late-1b099b5796b6">Are first babies more likely to be late?</a>, by Allen Downey. This is another relatively short analysis, but the author does a good job of documenting his data sources, stating the assumptions he makes, and also describes what data were dropped from the analysis (i.e. babies born via C-section).</li>
+<li><a
+href="https://www.datacamp.com/community/tutorials/tidyverse-tutorial-r">Survivors
+of the Titantic</a>: A great overview of getting started with the
+tidyverse.</li>
+<li><a
+href="https://radmuzom.com/2019/05/18/fun-with-statistics-is-usain-bolt-really-the-fastest-man-on-earth/">Is
+Usain Bolt really the fastest man on earth?</a>, by <a
+href="https://radmuzom.com/about/">Anindya Mozumdar</a>. This analysis
+uses some statistical modeling (which won’t cover), but the use of
+visualizations alone are effective for addressing the research questions
+posed.</li>
+<li><a href="https://www.kaggle.com/jonathanbouchet/f1-data-analysis">F1
+racing data analysis</a>, by Jonathan Bouchet. This is an extensive
+exploratory data analysis of a variety of data on races, drivers, and
+constructors across the history of <a
+href="https://www.formula1.com/">Formula 1</a> racing. This would
+probably be overkill for a course project, but sections of it
+(e.g. section 3 on the races, or sections 4 and 5 together on the
+drivers and constructors) would make a nice project. It involves
+mutliple data sets, some not-so-simple data cleaning, and a wide variety
+of nice visualizations.</li>
+<li><a href="http://myweb.fsu.edu/jelsner/stronger-hur.html">Increasing
+Intensity of Strong Atlantic Hurricanes</a>, by James B. Elsner. This is
+a short analysis with the goal of validating the predictions of <a
+href="https://www.nature.com/articles/nature07234">this study</a>
+published in Nature in 2008, which predicted that Atlantic tropical
+cyclones would continue to get stronger on average over time. While this
+analysis is too short to be considered adequate for a final project, it
+is still a good example of good data source documentation and one
+effective visualization. An expanded inquiry into the questions
+addressed here would make a good course project.</li>
+<li><a href="https://owenshen24.github.io/charting-death/">Death:
+Reality vs Reported</a>, by Owen Shen: This is an interesting original
+analysis in which the author collected the data himself. The analysis
+compares whether the proportion of actual causes of death is consistent
+with the proportion of death causes that the media reports. This
+analysis also uses some interactive graphics so that the reader can view
+different versions of the same plot, such as scrolling through the plot
+over time.</li>
+<li><a
+href="https://towardsdatascience.com/are-first-babies-more-likely-to-be-late-1b099b5796b6">Are
+first babies more likely to be late?</a>, by Allen Downey. This is
+another relatively short analysis, but the author does a good job of
+documenting his data sources, stating the assumptions he makes, and also
+describes what data were dropped from the analysis (i.e. babies born via
+C-section).</li>
 </ul>
 
 

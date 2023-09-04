@@ -13,6 +13,7 @@
 
 <title>R for Analytics Primer</title>
 
+<script src="site_libs/header-attrs-2.24.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -31,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -241,8 +242,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -250,16 +251,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -445,7 +439,10 @@ $(document).ready(function () {
 
 
 <p><strong>Description</strong>:</p>
-<p>This site provides a foundation in using the <a href="https://www.r-project.org/">R programming language</a> for data analytics. It is designed to be self-taught as preparation for other courses that build on the concepts covered. Topics include:</p>
+<p>This site provides a foundation in using the <a
+href="https://www.r-project.org/">R programming language</a> for data
+analytics. It is designed to be self-taught as preparation for other
+courses that build on the concepts covered. Topics include:</p>
 <ul>
 <li>Data input/output</li>
 <li>External packages</li>
@@ -458,13 +455,16 @@ $(document).ready(function () {
 <p>After completing these lessons, you should be able to:</p>
 <ul>
 <li>Use RStudio to write basic R commands.</li>
-<li>Know the distinctions between different R operators and data types, including numeric, string, and logical data.</li>
-<li>Use <strong>tidyverse</strong> functions to wrangle and manipulate data in R.</li>
+<li>Know the distinctions between different R operators and data types,
+including numeric, string, and logical data.</li>
+<li>Use <strong>tidyverse</strong> functions to wrangle and manipulate
+data in R.</li>
 <li>Use the <strong>ggplot2</strong> library to create plots in R.</li>
 <li>Reproducibly import, export, wrangle, and visualize data.</li>
 </ul>
 <p><strong>Prerequisites</strong>:</p>
-<p>There are no prerequisites. Students are assumed to have zero prior programming experience for this course.</p>
+<p>There are no prerequisites. Students are assumed to have zero prior
+programming experience for this course.</p>
 
 
 <hr>

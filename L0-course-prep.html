@@ -13,6 +13,7 @@
 
 <title>Course Prep</title>
 
+<script src="site_libs/header-attrs-2.24.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -31,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -241,8 +242,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -250,16 +251,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -444,16 +438,25 @@ $(document).ready(function () {
 </div>
 
 
-<p>Before you get started with this course, you’ll need to install R and RStudio. You might also want to try out one of the “cloud” versions of RStudio listed below.</p>
+<p>Before you get started with this course, you’ll need to install R and
+RStudio. You might also want to try out one of the “cloud” versions of
+RStudio listed below.</p>
 <div id="install-r-and-rstudio" class="section level1">
 <h1>Install R and RStudio</h1>
 <ul>
-<li><a href="https://cloud.r-project.org">Download and install R</a> (version 4.0.2 or higher)</li>
-<li><a href="https://rstudio.com/products/rstudio/download/">Download and install RStudio</a> (Desktop version)</li>
+<li><a href="https://cloud.r-project.org">Download and install R</a>
+(version 4.0.2 or higher)</li>
+<li><a href="https://rstudio.com/products/rstudio/download/">Download
+and install RStudio</a> (Desktop version)</li>
 </ul>
-<p><strong>We will always work in RStudio</strong>, so be careful to open RStudio and not the default R application that comes with R:</p>
+<p><strong>We will always work in RStudio</strong>, so be careful to
+open RStudio and not the default R application that comes with R:</p>
 <div style="width:200px">
 <table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Open this</th>
@@ -471,15 +474,29 @@ $(document).ready(function () {
 </div>
 <div id="rstudio-in-the-cloud" class="section level1">
 <h1>RStudio in the cloud!</h1>
-<p>If you’re having trouble installing R or RStudio, don’t worry - you can quickly launch a <em>virtual</em> version of RStudio in your webbrowser! Here are two ways to do that:</p>
+<p>If you’re having trouble installing R or RStudio, don’t worry - you
+can quickly launch a <em>virtual</em> version of RStudio in your
+webbrowser! Here are two ways to do that:</p>
 <ol style="list-style-type: decimal">
-<li>Go to <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> and sign up for a free account.</li>
-<li>If you are a GWU student, you can access a local RStudio cloud session by clicking on the <i class="fab fa-r-project"></i> logo in the menu bar and logging in with your GWU web ID and password.</li>
+<li>Go to <a href="https://rstudio.cloud/"
+class="uri">https://rstudio.cloud/</a> and sign up for a free
+account.</li>
+<li>If you are a GWU student, you can access a local RStudio cloud
+session by clicking on the <i class="fab fa-r-project"></i> logo in the
+menu bar and logging in with your GWU web ID and password.</li>
 </ol>
-<p><strong>Note</strong>: You must be on the GW network for option 2 to work. If you’re off campus, you can get on the network remotely using a <a href="https://seascf.seas.gwu.edu/vpn-access">VPN</a>. You can do that by installing the “Cisco AnyConnect VPN Client” software and logging in to GW’s VPN:</p>
+<p><strong>Note</strong>: You must be on the GW network for option 2 to
+work. If you’re off campus, you can get on the network remotely using a
+<a href="https://seascf.seas.gwu.edu/vpn-access">VPN</a>. You can do
+that by installing the “Cisco AnyConnect VPN Client” software and
+logging in to GW’s VPN:</p>
 <ul>
-<li>Install <a href="https://my.gwu.edu/mod/downloads/?category=VPN">Cisco AnyConnect VPN Client</a></li>
-<li>Follow <a href="https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm">these instructions</a> to log on to the VPN with your GW NetID</li>
+<li>Install <a
+href="https://my.gwu.edu/mod/downloads/?category=VPN">Cisco AnyConnect
+VPN Client</a></li>
+<li>Follow <a
+href="https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm">these
+instructions</a> to log on to the VPN with your GW NetID</li>
 </ul>
 </div>
 
